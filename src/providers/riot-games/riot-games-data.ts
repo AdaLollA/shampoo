@@ -1,12 +1,11 @@
-declare module RiotGamesProviderData {
+export module RiotGamesProviderData {
 
-  /*
-  export interface CreateOffer {
-    label: string;
-    offerDescription: string;
-    exactRealizationDate: Date;
-    price: number;
+  export interface IGetSummonerData {
+    summonerName: string
   }
-  */
+
+  export interface IGetChampions {
+    // no data required
+  }
 
 }

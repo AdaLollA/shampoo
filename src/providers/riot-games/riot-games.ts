@@ -1,5 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {BackendProvider} from "../backend/backend";
+import {RiotGamesProviderEndpoints} from "./riot-games-endpoints";
+import {RiotGamesProviderResponse} from "./riot-games-response";
 
 /*
   Generated class for the RiotGamesProvider provider.
@@ -10,8 +12,22 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class RiotGamesProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello RiotGamesProvider Provider');
+  constructor(public backend: BackendProvider) {
+  }
+
+  public getChampions(): Promise<any> {
+    return new Promise<RiotGamesProviderResponse.IChampion[]>((resolve, reject) => {
+      this.backend.getData(RiotGamesProviderEndpoints.GET_CHAMPIONS).then(
+        (res) => {
+          // success
+          console.log(res);
+        },
+        (err: BackendResponse.Error) => {
+          // error
+          reject(err);
+        }
+      );
+    });
   }
 
 }
