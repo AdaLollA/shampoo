@@ -17,7 +17,7 @@
 
   <ion-item>
     <ion-label>Summoner</ion-label>
-    <ion-input type="text" value=""></ion-input>
+    <ion-input type="text" [value]="summonerName" (ionChange)="summonerNameChanged($event)"></ion-input>
   </ion-item>
 
   <ion-item>

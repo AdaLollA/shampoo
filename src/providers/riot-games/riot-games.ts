@@ -4,6 +4,7 @@ import {RiotGamesProviderEndpoints} from "./riot-games-endpoints";
 import {RiotGamesProviderResponse} from "./riot-games-response";
 import IChampion = RiotGamesProviderResponse.IChampion;
 import {RiotGamesProviderSamples} from "./riot-games-samples";
+import {Pro} from "@ionic/pro";
 
 /*
   Generated class for the RiotGamesProvider provider.
@@ -52,6 +53,13 @@ export class RiotGamesProvider {
         }
       }
       resolve(champions);
+    });
+  }
+
+  public isUpToDate(): Promise<boolean> {
+    return new Promise<boolean>((resolve) => {
+      // todo makes the app reload all data on every start
+      resolve(false);
     });
   }
 

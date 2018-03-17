@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {RiotGamesProvider} from "../../providers/riot-games/riot-games";
-import {AlertController, reorderArray} from "ionic-angular";
+import {AlertController, Events, reorderArray} from "ionic-angular";
 import {RiotGamesProviderResponse} from "../../providers/riot-games/riot-games-response";
 import IChampion = RiotGamesProviderResponse.IChampion;
 import {Storage} from "@ionic/storage";
@@ -13,8 +13,12 @@ import {AppConfiguration} from "../../app/app-config";
 export class HomePage {
 
   // Temporary summoner name definition:
-  private summonerName: string = 'AdaLollA';
+  private summonerName: string;
 
+  // General data
+  private allChampions: IChampion[] = [];
+
+  // Picks and bans
   private picks: IChampion[] = [];
   private bans: IChampion[] = [];
 
@@ -22,34 +26,72 @@ export class HomePage {
   private showName: boolean;
   private showTitle: boolean;
 
-  constructor(private riotBackend: RiotGamesProvider, private alertCtrl: AlertController, private storage: Storage) {
+  constructor(private riotBackend: RiotGamesProvider,
+              private alertCtrl: AlertController,
+              private storage: Storage,
+              private events: Events) {
     // Initial configuration read
-    storage.get(AppConfiguration.SHOW_CHAMPION_NAMES).then((val) => {
+    this.loadFromConfig();
+
+    // Perform updates
+    this.updateData();
+
+    // Subscribe to configuration updates
+    this.subscribeToUpdates()
+  }
+
+  /**
+   * Subscribes to and handles configuration updates
+   */
+  private subscribeToUpdates() {
+    this.events.subscribe(AppConfiguration.AppEvents.PROPERTY_CHANGED, (property) => {
+      if (property == AppConfiguration.SUMMONER_NAME) {
+        this.storage.get(AppConfiguration.SUMMONER_NAME).then((val) => {
+          this.summonerName = val;
+        })
+      }
+    });
+  }
+
+  /**
+   * Check if updates are necessary and if so perform them.
+   */
+  private updateData() {
+    this.riotBackend.isUpToDate().then(
+      (upToDate) => {
+        if (!upToDate) {
+          this.riotBackend.getChampions().then(
+            (res) => {
+              this.allChampions = res;
+              this.bans = this.allChampions.splice(0,5);
+            },
+            (err: BackendResponse.Error) => {
+              // error
+              this.basicAlert('Error', err.status.message);
+            }
+          );
+        }
+      },
+      (err: BackendResponse.Error) => {
+        // error
+        this.basicAlert('Error', err.status.message);
+      }
+    );
+  }
+
+  /**
+   * Load local configurations from storage.
+   */
+  private loadFromConfig() {
+    this.storage.get(AppConfiguration.SHOW_CHAMPION_NAMES).then((val) => {
       this.showName = val;
     });
-    storage.get(AppConfiguration.SHOW_CHAMPION_TITLES).then((val) => {
+    this.storage.get(AppConfiguration.SHOW_CHAMPION_TITLES).then((val) => {
       this.showTitle = val;
     });
-
-    // todo temporary fetch all champions for sample data
-    riotBackend.getChampions().then(
-      (res) => {
-        this.picks = res;
-      },
-      (err: BackendResponse.Error) => {
-        // error
-        this.basicAlert('Error', err.status.message);
-      }
-    );
-    riotBackend.getChampions().then(
-      (res) => {
-        this.bans = res.splice(0,5);
-      },
-      (err: BackendResponse.Error) => {
-        // error
-        this.basicAlert('Error', err.status.message);
-      }
-    );
+    this.storage.get(AppConfiguration.SUMMONER_NAME).then((val) => {
+      this.summonerName = val ? val : 'Summoner';
+    });
   }
 
   /**

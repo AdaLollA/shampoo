@@ -13,11 +13,12 @@ import {Storage} from "@ionic/storage";
 @IonicPage()
 @Component({
   selector: 'page-settings',
-  templateUrl: 'settings.html',
+  templateUrl: 'settings.html'
 })
 export class SettingsPage {
   private showName: boolean;
   private showTitle: boolean;
+  private summonerName: string;
 
   constructor(private storage: Storage, private alertCtrl: AlertController) {
     this.loadSettings()
@@ -31,6 +32,17 @@ export class SettingsPage {
     this.storage.get(AppConfiguration.SHOW_CHAMPION_TITLES).then((val) => {
       this.showTitle = val;
     });
+
+    this.storage.get(AppConfiguration.SUMMONER_NAME).then((val) => {
+      this.summonerName = val;
+    })
+  }
+
+  /**
+   * Called when the summoner name input field is changed.
+   */
+  private summonerNameChanged(val: any) {
+    console.log(val);
   }
 
   /**

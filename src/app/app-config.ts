@@ -2,6 +2,7 @@ export module AppConfiguration {
   export const CONFIG_SETUP_PERFORMED: string = 'config-setup-performed';
   export const SHOW_CHAMPION_NAMES: string = 'show-champion-names';
   export const SHOW_CHAMPION_TITLES: string = 'show-champion-titles';
+  export const SUMMONER_NAME: string = 'summoner-name';
 
   export module Presets {
     export const firstTimeConfigurationData: IKeyValuePair[] = [
@@ -18,6 +19,10 @@ export module AppConfiguration {
         value: true
       }
     ];
+  }
+
+  export module AppEvents {
+    export const PROPERTY_CHANGED: string = 'property-changed';
   }
 
   interface IKeyValuePair {

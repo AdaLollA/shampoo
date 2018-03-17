@@ -42,4 +42,5 @@ import {IonicStorageModule} from "@ionic/storage";
     IonicStorageModule
   ]
 })
+
 export class AppModule {}
