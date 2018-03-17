@@ -1,3 +1,8 @@
 page-home {
-
+  .center-horizontal {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100%;
+  }
 }

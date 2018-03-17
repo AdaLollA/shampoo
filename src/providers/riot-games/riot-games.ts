@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {BackendProvider} from "../backend/backend";
 import {RiotGamesProviderEndpoints} from "./riot-games-endpoints";
 import {RiotGamesProviderResponse} from "./riot-games-response";
+import IChampion = RiotGamesProviderResponse.IChampion;
+import {RiotGamesProviderSamples} from "./riot-games-samples";
 
 /*
   Generated class for the RiotGamesProvider provider.
@@ -15,18 +17,41 @@ export class RiotGamesProvider {
   constructor(public backend: BackendProvider) {
   }
 
-  public getChampions(): Promise<any> {
-    return new Promise<RiotGamesProviderResponse.IChampion[]>((resolve, reject) => {
+  public getChampions(): Promise<IChampion[]> {
+    return new Promise<IChampion[]>((resolve, reject) => {
+      /* TODO saving method requests
       this.backend.getData(RiotGamesProviderEndpoints.GET_CHAMPIONS).then(
         (res) => {
-          // success
-          console.log(res);
+          let champions: IChampion[] = [];
+          res = res.data;
+
+          for (var key in res) {
+            if (res.hasOwnProperty(key)) {
+              champions.push(res[key]);
+              //console.log(key + ": " + res[key]);
+            }
+          }
+          resolve(champions);
         },
         (err: BackendResponse.Error) => {
           // error
           reject(err);
         }
       );
+      */
+
+      // todo delete when fetching data from backend
+      let champions: IChampion[] = [];
+      let res: any = RiotGamesProviderSamples.GET_CHAMPION;
+      res = res.data;
+
+      for (var key in res) {
+        if (res.hasOwnProperty(key)) {
+          champions.push(res[key]);
+          //console.log(key + ": " + res[key]);
+        }
+      }
+      resolve(champions);
     });
   }
 

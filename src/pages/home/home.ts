@@ -1,7 +1,10 @@
 import {Component} from '@angular/core';
 import {RiotGamesProvider} from "../../providers/riot-games/riot-games";
-import {AlertController} from "ionic-angular";
+import {AlertController, reorderArray} from "ionic-angular";
 import {RiotGamesProviderResponse} from "../../providers/riot-games/riot-games-response";
+import IChampion = RiotGamesProviderResponse.IChampion;
+import {Storage} from "@ionic/storage";
+import {AppConfiguration} from "../../app/app-config";
 
 @Component({
   selector: 'page-home',
@@ -12,12 +15,35 @@ export class HomePage {
   // Temporary summoner name definition:
   private summonerName: string = 'AdaLollA';
 
-  private picks: RiotGamesProviderResponse.IChampion[] = [];
+  private picks: IChampion[] = [];
+  private bans: IChampion[] = [];
 
-  constructor(private riotBackend: RiotGamesProvider, private alertCtrl: AlertController) {
+  // Cached properties todo read from properties and update on event
+  private showName: boolean;
+  private showTitle: boolean;
+
+  constructor(private riotBackend: RiotGamesProvider, private alertCtrl: AlertController, private storage: Storage) {
+    // Initial configuration read
+    storage.get(AppConfiguration.SHOW_CHAMPION_NAMES).then((val) => {
+      this.showName = val;
+    });
+    storage.get(AppConfiguration.SHOW_CHAMPION_TITLES).then((val) => {
+      this.showTitle = val;
+    });
+
+    // todo temporary fetch all champions for sample data
     riotBackend.getChampions().then(
       (res) => {
         this.picks = res;
+      },
+      (err: BackendResponse.Error) => {
+        // error
+        this.basicAlert('Error', err.status.message);
+      }
+    );
+    riotBackend.getChampions().then(
+      (res) => {
+        this.bans = res.splice(0,5);
       },
       (err: BackendResponse.Error) => {
         // error
@@ -46,12 +72,26 @@ export class HomePage {
   }
 
   /**
-   * This function is called when a pick is selected.
+   * Called when a pick is reordered.
    *
-   * @param {string} pick The selected pick.
+   * @param indexes ReorderIndexes (from, to)
    */
-  private pickSelected(pick: string) {
+  private reorderPicks(indexes) {
+    this.bans = reorderArray(this.bans, indexes);
+  }
 
+  /**
+   * Creates and presents a dialog that provides details about a specific champion
+   *
+   * @param {RiotGamesProviderResponse.IChampion} champ The champion that is going to be described in detail.
+   */
+  private showChampionDetails(champ: IChampion) {
+    let alert = this.alertCtrl.create({
+      title: champ.name,
+      subTitle: champ.title,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }

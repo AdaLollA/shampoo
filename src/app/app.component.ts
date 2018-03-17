@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import {SettingsPage} from "../pages/settings/settings";
+import {AppConfiguration} from "./app-config";
+import {IonicStorageModule, Storage} from "@ionic/storage";
 
 @Component({
   templateUrl: 'app.html'
@@ -12,19 +14,15 @@ import {SettingsPage} from "../pages/settings/settings";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  homePage: any;
+  settingsPage: any;
+
+  rootPage: any;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private storage: Storage) {
     this.initializeApp();
-
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Settings', component: SettingsPage}
-    ];
-
   }
 
   initializeApp() {
@@ -33,6 +31,28 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      this.storage.ready().then(() => {
+        this.storage.get(AppConfiguration.CONFIG_SETUP_PERFORMED).then((val) => {
+          if (!val) {
+            console.log('Performing first time setup...')
+            for (let setting of AppConfiguration.Presets.firstTimeConfigurationData) {
+              this.storage.set(setting.key, setting.value);
+            }
+          }
+
+          this.homePage = HomePage;
+          this.settingsPage = SettingsPage;
+
+          this.rootPage = this.homePage;
+
+          // Load pages after setting initial configurations
+          this.pages = [
+            { title: 'Home', component: this.homePage },
+            { title: 'Settings', component: this.settingsPage}
+          ];
+        });
+      })
     });
   }
 

@@ -109,7 +109,12 @@ export class BackendProvider {
    */
   private manageError(err: Response) {
     // Parse error message
-    let parsedError = err.json();
+    let parsedError: any = err.json();
+
+    // Manage known errors
+    if (err.headers.get('Retry-After')) {
+      parsedError.status.message = parsedError.status.message + ". Cooldown: " + err.headers.get('Retry-After') + 's.';
+    }
 
     // Define unknown error in case it is needed
     let unknownError: BackendResponse.Error = {

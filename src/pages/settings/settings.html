@@ -22,14 +22,14 @@
 
   <ion-item>
     <ion-label>Show Champion Names</ion-label>
-    <ion-toggle checked="true"></ion-toggle>
+    <ion-toggle [(ngModel)]="showName" (ionChange)="setShowName($event)"></ion-toggle>
   </ion-item>
 
   <ion-item>
     <ion-label>Show Champion Titles</ion-label>
-    <ion-toggle checked="true"></ion-toggle>
+    <ion-toggle [(ngModel)]="showTitle" (ionChange)="setShowTitle($event)"></ion-toggle>
   </ion-item>
 
-  <button margin-top ion-button color="danger">Delete Cache</button>
+  <button margin-top ion-button color="danger" (click)="clearStorage()">Delete Cache</button>
 
 </ion-content>
