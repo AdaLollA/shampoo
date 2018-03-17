@@ -72,8 +72,8 @@ export class MyApp {
 
   private showPrompt() {
     let prompt = this.alertCtrl.create({
-      title: 'Login',
-      message: "Enter a name for this new album you're so keen on adding",
+      title: 'Welcome',
+      message: "Please enter your summoner name.",
       inputs: [
         {
           name: 'summonername',

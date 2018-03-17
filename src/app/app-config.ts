@@ -16,7 +16,7 @@ export module AppConfiguration {
       },
       {
         key: SHOW_CHAMPION_TITLES,
-        value: true
+        value: false
       }
     ];
   }

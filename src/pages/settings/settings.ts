@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AlertController, Events, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {AppConfiguration} from "../../app/app-config";
 import {Storage} from "@ionic/storage";
+import {loadDiagnostic} from "@ionic/app-scripts/dist/logger/logger-tslint";
 
 /**
  * Generated class for the SettingsPage page.
@@ -19,9 +20,12 @@ export class SettingsPage {
   private showName: boolean;
   private showTitle: boolean;
   private summonerName: string;
+  private summonerNameOld: string;
 
-  constructor(private storage: Storage, private alertCtrl: AlertController) {
-    this.loadSettings()
+  constructor(private storage: Storage,
+              private alertCtrl: AlertController,
+              private events: Events) {
+    this.loadSettings();
   }
 
   private loadSettings() {
@@ -35,14 +39,8 @@ export class SettingsPage {
 
     this.storage.get(AppConfiguration.SUMMONER_NAME).then((val) => {
       this.summonerName = val;
+      this.summonerNameOld = val;
     })
-  }
-
-  /**
-   * Called when the summoner name input field is changed.
-   */
-  private summonerNameChanged(val: any) {
-    console.log(val);
   }
 
   /**
@@ -55,21 +53,40 @@ export class SettingsPage {
       for (let setting of AppConfiguration.Presets.firstTimeConfigurationData) {
         this.storage.set(setting.key, setting.value);
       }
+      this.showPrompt();
+    });
+  }
 
-      let debugAlert = this.alertCtrl.create({
-        title: 'Storage Cleared',
-        message: 'Factory defaults are going to be restored now.',
-        buttons: [{
-          text: 'Okay',
-          role: 'cancel',
+  private showPrompt() {
+    let prompt = this.alertCtrl.create({
+      title: 'Cache Cleared',
+      message: "You may re-enter your summoner name.",
+      inputs: [
+        {
+          name: 'summonername',
+          placeholder: 'Summoner Name'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Skip',
           handler: () => {
             this.loadSettings();
           }
-        }]
-      });
-      debugAlert.present();
-
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Stored Summoner: ', data.summonername);
+            this.storage.set(AppConfiguration.SUMMONER_NAME, data.summonername).then(() => {
+              this.events.publish(AppConfiguration.AppEvents.PROPERTY_CHANGED, AppConfiguration.SUMMONER_NAME);
+              this.loadSettings();
+            });
+          }
+        }
+      ]
     });
+    prompt.present();
   }
 
   // Property setter
@@ -83,6 +100,12 @@ export class SettingsPage {
     if (val != this.showTitle) {
       this.storage.set(AppConfiguration.SHOW_CHAMPION_TITLES, val.checked);
     }
+  }
+
+  saveSummonerName() {
+    this.storage.set(AppConfiguration.SUMMONER_NAME, this.summonerName).then(() => {
+      this.loadSettings();
+    });
   }
 
 }
