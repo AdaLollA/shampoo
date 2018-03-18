@@ -13,7 +13,7 @@ import {Observable} from 'rxjs/Rx';
 export class BackendProvider {
 // Define base url
   baseUrl: string = 'https://euw1.api.riotgames.com/lol/';
-  urlParam: string = '?api_key=RGAPI-ca6e16ba-67a7-4027-b7f6-3ca41ec5e5bb';
+  urlParam: string = '?api_key=RGAPI-8d6babed-da81-4628-8853-74b38966404a';
 
   // Define headers
   headers: any = new Headers({'Content-Type': 'application/json'});
