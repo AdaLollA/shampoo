@@ -5,6 +5,8 @@ import {RiotGamesProviderResponse} from "./riot-games-response";
 import IChampion = RiotGamesProviderResponse.IChampion;
 import {RiotGamesProviderSamples} from "./riot-games-samples";
 import {Pro} from "@ionic/pro";
+import {Storage} from "@ionic/storage";
+import {AppConfiguration} from "../../app/app-config";
 
 /*
   Generated class for the RiotGamesProvider provider.
@@ -15,51 +17,75 @@ import {Pro} from "@ionic/pro";
 @Injectable()
 export class RiotGamesProvider {
 
-  constructor(public backend: BackendProvider) {
+  // Switches between mocked and live data
+  private mockData: boolean = true;
+
+  constructor(private backend: BackendProvider) {
   }
 
   public getChampions(): Promise<IChampion[]> {
     return new Promise<IChampion[]>((resolve, reject) => {
-      /* TODO saving method requests
-      this.backend.getData(RiotGamesProviderEndpoints.GET_CHAMPIONS).then(
-        (res) => {
-          let champions: IChampion[] = [];
-          res = res.data;
+      if (!this.mockData) {
+        this.backend.getData(RiotGamesProviderEndpoints.GET_CHAMPIONS).then(
+          (res) => {
+            let champions: IChampion[] = [];
+            res = res.data;
 
-          for (var key in res) {
-            if (res.hasOwnProperty(key)) {
-              champions.push(res[key]);
-              //console.log(key + ": " + res[key]);
+            for (var key in res) {
+              if (res.hasOwnProperty(key)) {
+                champions.push(res[key]);
+                //console.log(key + ": " + res[key]);
+              }
             }
+            resolve(champions);
+          },
+          (err: BackendResponse.Error) => {
+            // error
+            reject(err);
           }
-          resolve(champions);
-        },
-        (err: BackendResponse.Error) => {
-          // error
-          reject(err);
-        }
-      );
-      */
+        );
+      } else {
+        let champions: IChampion[] = [];
+        let res: any = RiotGamesProviderSamples.GET_CHAMPION;
+        res = res.data;
 
-      // todo delete when fetching data from backend
-      let champions: IChampion[] = [];
-      let res: any = RiotGamesProviderSamples.GET_CHAMPION;
-      res = res.data;
-
-      for (var key in res) {
-        if (res.hasOwnProperty(key)) {
-          champions.push(res[key]);
-          //console.log(key + ": " + res[key]);
+        for (var key in res) {
+          if (res.hasOwnProperty(key)) {
+            champions.push(res[key]);
+            //console.log(key + ": " + res[key]);
+          }
         }
+        resolve(champions);
       }
-      resolve(champions);
     });
   }
 
-  public isUpToDate(): Promise<boolean> {
-    return new Promise<boolean>((resolve) => {
-      // todo makes the app reload all data on every start
-      resolve(false);
+  public getLatestVersion(): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
+      let versions: string[] = [];
+      if (!this.mockData) {
+        this.backend.getData(RiotGamesProviderEndpoints.GET_VERSIONS).then(
+          (res) => {
+            for (var key in res) {
+              if (res.hasOwnProperty(key)) {
+                versions.push(res[key]);
+              }
+            }
+            resolve(versions[0]);
+          },
+          (err: BackendResponse.Error) => {
+            reject(err);
+          });
+      } else {
+        let res: any = RiotGamesProviderSamples.GET_VERSIONS;
+        for (var key in res) {
+          if (res.hasOwnProperty(key)) {
+            versions.push(res[key]);
+          }
+        }
+        resolve(versions[0]);
+      }
+
     });
   }
 

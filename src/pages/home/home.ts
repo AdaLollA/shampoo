@@ -57,20 +57,30 @@ export class HomePage {
    * Check if updates are necessary and if so perform them.
    */
   private updateData() {
-    this.riotBackend.isUpToDate().then(
-      (upToDate) => {
-        if (!upToDate) {
-          this.riotBackend.getChampions().then(
-            (res) => {
-              this.allChampions = res;
-              this.bans = this.allChampions.splice(0,5);
-            },
-            (err: BackendResponse.Error) => {
-              // error
-              this.basicAlert('Error', err.status.message);
-            }
-          );
-        }
+    this.riotBackend.getLatestVersion().then(
+      (latestVersion) => {
+        this.storage.get(AppConfiguration.VERSION).then((currentVersion) => {
+          if (currentVersion != latestVersion) {
+            // Perform update
+            console.log('New version available: ' + latestVersion + " - Updating...");
+            this.riotBackend.getChampions().then(
+              (res) => {
+                this.allChampions = res;
+                this.storage.set(AppConfiguration.CHAMPIONS, this.allChampions);
+
+                // todo manage bans independently of all champions
+                this.bans = this.allChampions.splice(0,5);
+              },
+              (err: BackendResponse.Error) => {
+                // error
+                this.basicAlert('Error', err.status.message);
+              }
+            );
+
+            // store version number that is updated to
+            this.storage.set(AppConfiguration.VERSION, latestVersion);
+          }
+        })
       },
       (err: BackendResponse.Error) => {
         // error
@@ -92,6 +102,10 @@ export class HomePage {
     this.storage.get(AppConfiguration.SUMMONER_NAME).then((val) => {
       this.summonerName = val ? val : 'Summoner';
     });
+    this.storage.get(AppConfiguration.CHAMPIONS).then((val) => {
+      this.allChampions = val;
+    });
+
   }
 
   /**
