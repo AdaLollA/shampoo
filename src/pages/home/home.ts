@@ -1,7 +1,10 @@
 import {Component} from '@angular/core';
 import {RiotGamesProvider} from "../../providers/riot-games/riot-games";
-import {AlertController} from "ionic-angular";
+import {AlertController, Events, reorderArray} from "ionic-angular";
 import {RiotGamesProviderResponse} from "../../providers/riot-games/riot-games-response";
+import IChampion = RiotGamesProviderResponse.IChampion;
+import {Storage} from "@ionic/storage";
+import {AppConfiguration} from "../../app/app-config";
 
 @Component({
   selector: 'page-home',
@@ -10,20 +13,85 @@ import {RiotGamesProviderResponse} from "../../providers/riot-games/riot-games-r
 export class HomePage {
 
   // Temporary summoner name definition:
-  private summonerName: string = 'AdaLollA';
+  private summonerName: string;
 
-  private picks: RiotGamesProviderResponse.IChampion[] = [];
+  // General data
+  private allChampions: IChampion[] = [];
 
-  constructor(private riotBackend: RiotGamesProvider, private alertCtrl: AlertController) {
-    riotBackend.getChampions().then(
-      (res) => {
-        this.picks = res;
+  // Picks and bans
+  private picks: IChampion[] = [];
+  private bans: IChampion[] = [];
+
+  // Cached properties todo read from properties and update on event
+  private showName: boolean;
+  private showTitle: boolean;
+
+  constructor(private riotBackend: RiotGamesProvider,
+              private alertCtrl: AlertController,
+              private storage: Storage,
+              private events: Events) {
+    // Initial configuration read
+    this.loadFromConfig();
+
+    // Perform updates
+    this.updateData();
+
+    // Subscribe to configuration updates
+    this.subscribeToUpdates()
+  }
+
+  /**
+   * Subscribes to and handles configuration updates
+   */
+  private subscribeToUpdates() {
+    this.events.subscribe(AppConfiguration.AppEvents.PROPERTY_CHANGED, (property) => {
+      if (property == AppConfiguration.SUMMONER_NAME) {
+        this.storage.get(AppConfiguration.SUMMONER_NAME).then((val) => {
+          this.summonerName = val;
+        })
+      }
+    });
+  }
+
+  /**
+   * Check if updates are necessary and if so perform them.
+   */
+  private updateData() {
+    this.riotBackend.isUpToDate().then(
+      (upToDate) => {
+        if (!upToDate) {
+          this.riotBackend.getChampions().then(
+            (res) => {
+              this.allChampions = res;
+              this.bans = this.allChampions.splice(0,5);
+            },
+            (err: BackendResponse.Error) => {
+              // error
+              this.basicAlert('Error', err.status.message);
+            }
+          );
+        }
       },
       (err: BackendResponse.Error) => {
         // error
         this.basicAlert('Error', err.status.message);
       }
     );
+  }
+
+  /**
+   * Load local configurations from storage.
+   */
+  private loadFromConfig() {
+    this.storage.get(AppConfiguration.SHOW_CHAMPION_NAMES).then((val) => {
+      this.showName = val;
+    });
+    this.storage.get(AppConfiguration.SHOW_CHAMPION_TITLES).then((val) => {
+      this.showTitle = val;
+    });
+    this.storage.get(AppConfiguration.SUMMONER_NAME).then((val) => {
+      this.summonerName = val ? val : 'Summoner';
+    });
   }
 
   /**
@@ -46,12 +114,26 @@ export class HomePage {
   }
 
   /**
-   * This function is called when a pick is selected.
+   * Called when a pick is reordered.
    *
-   * @param {string} pick The selected pick.
+   * @param indexes ReorderIndexes (from, to)
    */
-  private pickSelected(pick: string) {
+  private reorderPicks(indexes) {
+    this.bans = reorderArray(this.bans, indexes);
+  }
 
+  /**
+   * Creates and presents a dialog that provides details about a specific champion
+   *
+   * @param {RiotGamesProviderResponse.IChampion} champ The champion that is going to be described in detail.
+   */
+  private showChampionDetails(champ: IChampion) {
+    let alert = this.alertCtrl.create({
+      title: champ.name,
+      subTitle: champ.title,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }

@@ -12,6 +12,7 @@ import {SettingsPage} from "../pages/settings/settings";
 import { BackendProvider } from '../providers/backend/backend';
 import { RiotGamesProvider } from '../providers/riot-games/riot-games';
 import {HttpClientModule} from "@angular/common/http";
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -36,7 +38,9 @@ import {HttpClientModule} from "@angular/common/http";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BackendProvider,
-    RiotGamesProvider
+    RiotGamesProvider,
+    IonicStorageModule
   ]
 })
+
 export class AppModule {}
