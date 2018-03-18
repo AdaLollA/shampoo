@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
-import {RiotGamesProvider} from "../../providers/riot-games/riot-games";
-import {AlertController, Events, reorderArray} from "ionic-angular";
-import {RiotGamesProviderResponse} from "../../providers/riot-games/riot-games-response";
+import {RiotGamesProvider} from '../../providers/riot-games/riot-games';
+import {AlertController, Events, reorderArray} from 'ionic-angular';
+import {RiotGamesProviderResponse} from '../../providers/riot-games/riot-games-response';
 import IChampion = RiotGamesProviderResponse.IChampion;
-import {Storage} from "@ionic/storage";
-import {AppConfiguration} from "../../app/app-config";
+import {Storage} from '@ionic/storage';
+import {AppConfiguration} from '../../app/app-config';
+import {IPicks} from '../../entities/Entity';
 
 @Component({
   selector: 'page-home',
@@ -19,7 +20,7 @@ export class HomePage {
   private allChampions: IChampion[] = [];
 
   // Picks and bans
-  private picks: IChampion[] = [];
+  private picks: IPicks;
   private bans: IChampion[] = [];
 
   // Cached properties todo read from properties and update on event
@@ -30,6 +31,14 @@ export class HomePage {
               private alertCtrl: AlertController,
               private storage: Storage,
               private events: Events) {
+    this.picks = {
+      top: [],
+      jgl: [],
+      mid: [],
+      adc: [],
+      sup: []
+    };
+
     // Initial configuration read
     this.loadFromConfig();
 
@@ -62,14 +71,15 @@ export class HomePage {
         this.storage.get(AppConfiguration.VERSION).then((currentVersion) => {
           if (currentVersion != latestVersion) {
             // Perform update
-            console.log('New version available: ' + latestVersion + " - Updating...");
+            console.log('New version available: ' + latestVersion + ' - Updating...');
             this.riotBackend.getChampions().then(
               (res) => {
                 this.allChampions = res;
-                this.storage.set(AppConfiguration.CHAMPIONS, this.allChampions);
-
-                // todo manage bans independently of all champions
-                this.bans = this.allChampions.splice(0,5);
+                console.log('storing champions,', this.allChampions);
+                console.log('champion storage tag', AppConfiguration.CHAMPIONS);
+                this.storage.set(AppConfiguration.CHAMPIONS, this.allChampions).then(() => {
+                  this.loadFromConfig();
+                });
               },
               (err: BackendResponse.Error) => {
                 // error
@@ -104,8 +114,46 @@ export class HomePage {
     });
     this.storage.get(AppConfiguration.CHAMPIONS).then((val) => {
       this.allChampions = val;
-    });
+      // todo manage bans independently of all champions
+      if (val) {
+        this.bans = this.allChampions.splice(0, 5);
 
+        let winrate: number = 70;
+        for (let champ of this.bans) {
+          this.picks.top.push({
+            champion: champ,
+            winRate: winrate,
+            boxAvailable: true
+          });
+
+          this.picks.jgl.push({
+            champion: champ,
+            winRate: winrate,
+            boxAvailable: true
+          });
+
+          this.picks.mid.push({
+            champion: champ,
+            winRate: winrate,
+            boxAvailable: true
+          });
+
+          this.picks.adc.push({
+            champion: champ,
+            winRate: winrate,
+            boxAvailable: true
+          });
+
+          this.picks.sup.push({
+            champion: champ,
+            winRate: winrate,
+            boxAvailable: true
+          });
+
+          winrate -= 10;
+        }
+      }
+    });
   }
 
   /**

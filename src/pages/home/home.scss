@@ -5,4 +5,13 @@ page-home {
     align-items: center !important;
     height: 100%;
   }
+
+  .center-inner {
+    display:block;
+    margin:0 auto;
+  }
+
+  .center-outer {
+    text-align: center;
+  }
 }

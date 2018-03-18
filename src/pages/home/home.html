@@ -4,13 +4,108 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>{{ summonerName }}'s Dashboard</ion-title>
-
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <h3>Picks</h3>
-  TODO
+  <ion-grid>
+    <ion-row class="center-horizontal">
+      <ion-col>
+        <b>TOP</b>
+      </ion-col>
+      <ion-col *ngFor="let pick of picks.top" (click)="showChampionDetails(pick)" class="center-outer">
+        <ion-row class="center-inner">
+          <img src="http://via.placeholder.com/50x50">
+        </ion-row>
+        <ion-row class="center-inner">
+          {{ pick.champion.name }}
+        </ion-row>
+        <ion-row *ngIf="pick.winRate >= 50" class="center-inner" style="color: #32db64">
+          {{ pick.winRate }}%
+        </ion-row>
+        <ion-row *ngIf="pick.winRate < 50" class="center-inner" style="color: #f53d3d">
+          {{ pick.winRate }}%
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row class="center-horizontal">
+      <ion-col>
+        <b>JGL</b>
+      </ion-col>
+      <ion-col *ngFor="let pick of picks.jgl" (click)="showChampionDetails(pick)" class="center-outer">
+        <ion-row class="center-inner">
+          <img src="http://via.placeholder.com/50x50">
+        </ion-row>
+        <ion-row class="center-inner">
+          {{ pick.champion.name }}
+        </ion-row>
+        <ion-row *ngIf="pick.winRate >= 50" class="center-inner" style="color: #32db64">
+          {{ pick.winRate }}%
+        </ion-row>
+        <ion-row *ngIf="pick.winRate < 50" class="center-inner" style="color: #f53d3d">
+          {{ pick.winRate }}%
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row class="center-horizontal">
+      <ion-col>
+        <b>MID</b>
+      </ion-col>
+      <ion-col *ngFor="let pick of picks.mid" (click)="showChampionDetails(pick)" class="center-outer">
+        <ion-row class="center-inner">
+          <img src="http://via.placeholder.com/50x50">
+        </ion-row>
+        <ion-row class="center-inner">
+          {{ pick.champion.name }}
+        </ion-row>
+        <ion-row *ngIf="pick.winRate >= 50" class="center-inner" style="color: #32db64">
+          {{ pick.winRate }}%
+        </ion-row>
+        <ion-row *ngIf="pick.winRate < 50" class="center-inner" style="color: #f53d3d">
+          {{ pick.winRate }}%
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row class="center-horizontal">
+      <ion-col>
+        <b>ADC</b>
+      </ion-col>
+      <ion-col *ngFor="let pick of picks.adc" (click)="showChampionDetails(pick)" class="center-outer">
+        <ion-row class="center-inner">
+          <img src="http://via.placeholder.com/50x50">
+        </ion-row>
+        <ion-row class="center-inner">
+          {{ pick.champion.name }}
+        </ion-row>
+        <ion-row *ngIf="pick.winRate >= 50" class="center-inner" style="color: #32db64">
+          {{ pick.winRate }}%
+        </ion-row>
+        <ion-row *ngIf="pick.winRate < 50" class="center-inner" style="color: #f53d3d">
+          {{ pick.winRate }}%
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row class="center-horizontal">
+      <ion-col>
+        <b>SUP</b>
+      </ion-col>
+      <ion-col *ngFor="let pick of picks.sup" (click)="showChampionDetails(pick)" class="center-outer">
+        <ion-row class="center-inner">
+          <img src="http://via.placeholder.com/50x50">
+        </ion-row>
+        <ion-row class="center-inner">
+          {{ pick.champion.name }}
+        </ion-row>
+        <ion-row *ngIf="pick.winRate >= 50" class="center-inner" style="color: #32db64">
+          {{ pick.winRate }}%
+        </ion-row>
+        <ion-row *ngIf="pick.winRate < 50" class="center-inner" style="color: #f53d3d">
+          {{ pick.winRate }}%
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <h3>Bans</h3>
   <ion-list no-lines reorder="true" (ionItemReorder)="reorderPicks($event)">
