@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {RiotGamesProvider} from "../../providers/riot-games/riot-games";
-import {AlertController, Events, reorderArray} from "ionic-angular";
-import {RiotGamesProviderResponse} from "../../providers/riot-games/riot-games-response";
+import {RiotGamesProvider} from '../../providers/riot-games/riot-games';
+import {AlertController, Events, reorderArray} from 'ionic-angular';
+import {RiotGamesProviderResponse} from '../../providers/riot-games/riot-games-response';
 import IChampion = RiotGamesProviderResponse.IChampion;
-import {Storage} from "@ionic/storage";
-import {AppConfiguration} from "../../app/app-config";
+import {Storage} from '@ionic/storage';
+import {AppConfiguration} from '../../app/app-config';
 
 @Component({
   selector: 'page-home',
@@ -62,14 +62,14 @@ export class HomePage {
         this.storage.get(AppConfiguration.VERSION).then((currentVersion) => {
           if (currentVersion != latestVersion) {
             // Perform update
-            console.log('New version available: ' + latestVersion + " - Updating...");
+            console.log('New version available: ' + latestVersion + ' - Updating...');
             this.riotBackend.getChampions().then(
               (res) => {
                 this.allChampions = res;
                 this.storage.set(AppConfiguration.CHAMPIONS, this.allChampions);
 
                 // todo manage bans independently of all champions
-                this.bans = this.allChampions.splice(0,5);
+                this.bans = this.allChampions.splice(0, 5);
               },
               (err: BackendResponse.Error) => {
                 // error
