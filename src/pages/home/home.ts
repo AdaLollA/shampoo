@@ -66,6 +66,9 @@ export class HomePage {
               this.bans = this.allChampions.splice(0,5);
             },
             (err: BackendResponse.Error) => {
+
+              console.log(err);
+
               // error
               this.basicAlert('Error', err.status.message);
             }

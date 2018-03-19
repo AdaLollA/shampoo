@@ -1,58 +1,79 @@
 import {Injectable} from '@angular/core';
-import {BackendProvider} from "../backend/backend";
-import {RiotGamesProviderEndpoints} from "./riot-games-endpoints";
-import {RiotGamesProviderResponse} from "./riot-games-response";
+import {ApiBaseProvider} from '../../components/backend/base-provider';
+import {APIRequestBuilder, HTTP_METHOD} from '../../components/backend/request';
+import {RiotGamesProviderResponse} from './riot-games-response';
 import IChampion = RiotGamesProviderResponse.IChampion;
-import {RiotGamesProviderSamples} from "./riot-games-samples";
-import {Pro} from "@ionic/pro";
+import {RiotGamesProviderSamples} from './riot-games-samples';
+import {HttpClient} from '@angular/common/http';
+import {RiotGamesProviderEndpoints} from './riot-games-endpoints';
 
 /*
-  Generated class for the RiotGamesProvider provider.
+private used interface struct for parsing JSON-Responses internally
+ */
+interface ChampionResponse {
+  data: IChampion[];
+  type: string;
+  version
+}
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
-export class RiotGamesProvider {
+export class RiotGamesProvider extends ApiBaseProvider {
 
-  constructor(public backend: BackendProvider) {
+  private static apiKey: string
+
+  private mockData: boolean = false;
+
+  constructor(private httpClient: HttpClient) {
+    super(httpClient,
+      'https://euw1.api.riotgames.com/lol/',
+      RiotGamesProvider.apiKey)
+  }
+
+  /**
+   * Set the riot API-Key where the provider is set
+   * @param {string} apiKey the
+   * @returns {typeof RiotGamesProvider}
+   */
+  public static setAPIKey(apiKey: string): typeof RiotGamesProvider {
+    this.apiKey = apiKey;
+    return this;
   }
 
   public getChampions(): Promise<IChampion[]> {
+    let request = new APIRequestBuilder(RiotGamesProviderEndpoints.GET_CHAMPIONS, HTTP_METHOD.GET)
+      .build();
+
     return new Promise<IChampion[]>((resolve, reject) => {
-      /* TODO saving method requests
-      this.backend.getData(RiotGamesProviderEndpoints.GET_CHAMPIONS).then(
-        (res) => {
-          let champions: IChampion[] = [];
-          res = res.data;
-
-          for (var key in res) {
-            if (res.hasOwnProperty(key)) {
-              champions.push(res[key]);
-              //console.log(key + ": " + res[key]);
+      if (!this.mockData) {
+        this.request<ChampionResponse>(request).then(
+          (championResponse) => {
+            let data = championResponse.data;
+            let champions: IChampion[] = [];
+            for (let key in data) {
+              if (data.hasOwnProperty(key)) {
+                champions.push(data[key]);
+              }
             }
+            resolve(champions);
+          },
+          (err: BackendResponse.Error) => {
+            // error
+            reject(err);
           }
-          resolve(champions);
-        },
-        (err: BackendResponse.Error) => {
-          // error
-          reject(err);
-        }
-      );
-      */
+        );
+      } else {
+        let champions: IChampion[] = [];
+        let res: any = RiotGamesProviderSamples.GET_CHAMPION;
+        res = res.data;
 
-      // todo delete when fetching data from backend
-      let champions: IChampion[] = [];
-      let res: any = RiotGamesProviderSamples.GET_CHAMPION;
-      res = res.data;
-
-      for (var key in res) {
-        if (res.hasOwnProperty(key)) {
-          champions.push(res[key]);
-          //console.log(key + ": " + res[key]);
+        for (var key in res) {
+          if (res.hasOwnProperty(key)) {
+            champions.push(res[key]);
+            //console.log(key + ": " + res[key]);
+          }
         }
+        resolve(champions);
       }
-      resolve(champions);
     });
   }
 
@@ -62,5 +83,4 @@ export class RiotGamesProvider {
       resolve(false);
     });
   }
-
 }
