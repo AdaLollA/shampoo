@@ -77,10 +77,32 @@ export class RiotGamesProvider extends ApiBaseProvider {
     });
   }
 
-  public isUpToDate(): Promise<boolean> {
-    return new Promise<boolean>((resolve) => {
-      // todo makes the app reload all data on every start
-      resolve(false);
+  public getLatestVersion(): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
+      let versions: string[] = [];
+      if (!this.mockData) {
+        this.backend.getData(RiotGamesProviderEndpoints.GET_VERSIONS).then(
+          (res) => {
+            for (var key in res) {
+              if (res.hasOwnProperty(key)) {
+                versions.push(res[key]);
+              }
+            }
+            resolve(versions[0]);
+          },
+          (err: BackendResponse.Error) => {
+            reject(err);
+          });
+      } else {
+        let res: any = RiotGamesProviderSamples.GET_VERSIONS;
+        for (var key in res) {
+          if (res.hasOwnProperty(key)) {
+            versions.push(res[key]);
+          }
+        }
+        resolve(versions[0]);
+      }
+
     });
   }
 }
