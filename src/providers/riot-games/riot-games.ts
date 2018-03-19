@@ -8,12 +8,19 @@ import {HttpClient} from '@angular/common/http';
 import {RiotGamesProviderEndpoints} from './riot-games-endpoints';
 import ChampionResponse = RiotGamesProviderResponse.ChampionResponse;
 
+/**
+ * Base interface for the capabilities of the RIOT-Games API used in this application
+ */
+interface IRiotGamesEndpoints {
+  getChampions(): Promise<IChampion[]>;
+
+  getLatestVersion(): Promise<string>;
+}
+
 @Injectable()
-export class RiotGamesProvider extends ApiBaseProvider {
+export class RiotGamesProvider extends ApiBaseProvider implements IRiotGamesEndpoints {
 
   private static apiKey: string
-
-  private mockData: boolean = false;
 
   constructor(private httpClient: HttpClient) {
     super(httpClient,
@@ -36,36 +43,22 @@ export class RiotGamesProvider extends ApiBaseProvider {
       .build();
 
     return new Promise<IChampion[]>((resolve, reject) => {
-      if (!this.mockData) {
-        this.request<ChampionResponse>(request).then(
-          (championResponse) => {
-            let data = championResponse.data;
-            let champions: IChampion[] = [];
-            for (let key in data) {
-              if (data.hasOwnProperty(key)) {
-                champions.push(data[key]);
-              }
+      this.request<ChampionResponse>(request).then(
+        (championResponse) => {
+          let data = championResponse.data;
+          let champions: IChampion[] = [];
+          for (let key in data) {
+            if (data.hasOwnProperty(key)) {
+              champions.push(data[key]);
             }
-            resolve(champions);
-          },
-          (err: BackendResponse.Error) => {
-            // error
-            reject(err);
           }
-        );
-      } else {
-        let champions: IChampion[] = [];
-        let res: any = RiotGamesProviderSamples.GET_CHAMPION;
-        res = res.data;
-
-        for (var key in res) {
-          if (res.hasOwnProperty(key)) {
-            champions.push(res[key]);
-            //console.log(key + ": " + res[key]);
-          }
+          resolve(champions);
+        },
+        (err: BackendResponse.Error) => {
+          // error
+          reject(err);
         }
-        resolve(champions);
-      }
+      );
     });
   }
 
@@ -78,24 +71,50 @@ export class RiotGamesProvider extends ApiBaseProvider {
       .build();
 
     return new Promise<string>((resolve, reject) => {
-      if (!this.mockData) {
-        this.request<string[]>(request).then(
-          (versions) => {
-            resolve(versions[0]);
-          },
-          (err: BackendResponse.Error) => {
-            reject(err);
-          });
-      } else {
-        let res: any = RiotGamesProviderSamples.GET_VERSIONS;
-        let versions: string[] = [];
-        for (var key in res) {
-          if (res.hasOwnProperty(key)) {
-            versions.push(res[key]);
-          }
+      this.request<string[]>(request).then(
+        (versions) => {
+          resolve(versions[0]);
+        },
+        (err: BackendResponse.Error) => {
+          reject(err);
+        });
+    });
+  }
+}
+
+/**
+ * A mocked version of the RiotGamesProvider
+ */
+export class RiotGamesProviderMock implements IRiotGamesEndpoints {
+
+  public getChampions(): Promise<IChampion[]> {
+    console.warn('You are currently using a mocked getChampions() call!');
+    return new Promise<IChampion[]>((resolve, reject) => {
+      let champions: IChampion[] = [];
+      let res: any = RiotGamesProviderSamples.GET_CHAMPION;
+      res = res.data;
+
+      for (var key in res) {
+        if (res.hasOwnProperty(key)) {
+          champions.push(res[key]);
+          //console.log(key + ": " + res[key]);
         }
-        resolve(versions[0]);
       }
+      resolve(champions);
+    });
+  }
+
+  public getLatestVersion(): Promise<string> {
+    console.warn('You are currently using a mocked getLatestVersion() call!');
+    return new Promise<string>((resolve, reject) => {
+      let res: any = RiotGamesProviderSamples.GET_VERSIONS;
+      let versions: string[] = [];
+      for (var key in res) {
+        if (res.hasOwnProperty(key)) {
+          versions.push(res[key]);
+        }
+      }
+      resolve(versions[0]);
     });
   }
 }

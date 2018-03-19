@@ -9,7 +9,7 @@ import {HomePage} from '../pages/home/home';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {SettingsPage} from '../pages/settings/settings';
-import {RiotGamesProvider} from '../providers/riot-games/riot-games';
+import {RiotGamesProvider, RiotGamesProviderMock} from '../providers/riot-games/riot-games';
 import {HttpClientModule} from '@angular/common/http';
 import {IonicStorageModule} from '@ionic/storage';
 
@@ -34,8 +34,14 @@ import {IonicStorageModule} from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RiotGamesProvider.setAPIKey('RGAPI-8d6babed-da81-4628-8853-74b38966404a'),
+    {
+      provide: ErrorHandler,
+      useClass: IonicErrorHandler
+    },
+    {
+      provide: RiotGamesProvider.setAPIKey('RGAPI-8d6babed-da81-4628-8853-74b38966404a'),
+      useClass: RiotGamesProviderMock
+    },
     IonicStorageModule
   ]
 })
