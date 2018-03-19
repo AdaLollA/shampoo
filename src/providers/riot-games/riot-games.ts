@@ -6,15 +6,7 @@ import IChampion = RiotGamesProviderResponse.IChampion;
 import {RiotGamesProviderSamples} from './riot-games-samples';
 import {HttpClient} from '@angular/common/http';
 import {RiotGamesProviderEndpoints} from './riot-games-endpoints';
-
-/*
-private used interface struct for parsing JSON-Responses internally
- */
-interface ChampionResponse {
-  data: IChampion[];
-  type: string;
-  version
-}
+import ChampionResponse = RiotGamesProviderResponse.ChampionResponse;
 
 @Injectable()
 export class RiotGamesProvider extends ApiBaseProvider {
@@ -77,17 +69,18 @@ export class RiotGamesProvider extends ApiBaseProvider {
     });
   }
 
+  /**
+   * Retrieved the current version of League of Legends from the RIOT-API
+   * @returns {Promise<string>} the latest version as string
+   */
   public getLatestVersion(): Promise<string> {
+    let request = new APIRequestBuilder(RiotGamesProviderEndpoints.GET_VERSIONS, HTTP_METHOD.GET)
+      .build();
+
     return new Promise<string>((resolve, reject) => {
-      let versions: string[] = [];
       if (!this.mockData) {
-        this.backend.getData(RiotGamesProviderEndpoints.GET_VERSIONS).then(
-          (res) => {
-            for (var key in res) {
-              if (res.hasOwnProperty(key)) {
-                versions.push(res[key]);
-              }
-            }
+        this.request<string[]>(request).then(
+          (versions) => {
             resolve(versions[0]);
           },
           (err: BackendResponse.Error) => {
@@ -95,6 +88,7 @@ export class RiotGamesProvider extends ApiBaseProvider {
           });
       } else {
         let res: any = RiotGamesProviderSamples.GET_VERSIONS;
+        let versions: string[] = [];
         for (var key in res) {
           if (res.hasOwnProperty(key)) {
             versions.push(res[key]);
@@ -102,7 +96,6 @@ export class RiotGamesProvider extends ApiBaseProvider {
         }
         resolve(versions[0]);
       }
-
     });
   }
 }
