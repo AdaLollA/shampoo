@@ -21,10 +21,13 @@
         <ion-row class="center-inner">
           {{ pick.champion.name }}
         </ion-row>
-        <ion-row *ngIf="pick.winRate >= 50" class="center-inner" style="color: #32db64">
+        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
           {{ pick.winRate }}%
         </ion-row>
-        <ion-row *ngIf="pick.winRate < 50" class="center-inner" style="color: #f53d3d">
+        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
+          {{ pick.winRate }}%
+        </ion-row>
+        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
           {{ pick.winRate }}%
         </ion-row>
       </ion-col>
@@ -40,10 +43,13 @@
         <ion-row class="center-inner">
           {{ pick.champion.name }}
         </ion-row>
-        <ion-row *ngIf="pick.winRate >= 50" class="center-inner" style="color: #32db64">
+        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
           {{ pick.winRate }}%
         </ion-row>
-        <ion-row *ngIf="pick.winRate < 50" class="center-inner" style="color: #f53d3d">
+        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
+          {{ pick.winRate }}%
+        </ion-row>
+        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
           {{ pick.winRate }}%
         </ion-row>
       </ion-col>
@@ -59,10 +65,13 @@
         <ion-row class="center-inner">
           {{ pick.champion.name }}
         </ion-row>
-        <ion-row *ngIf="pick.winRate >= 50" class="center-inner" style="color: #32db64">
+        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
           {{ pick.winRate }}%
         </ion-row>
-        <ion-row *ngIf="pick.winRate < 50" class="center-inner" style="color: #f53d3d">
+        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
+          {{ pick.winRate }}%
+        </ion-row>
+        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
           {{ pick.winRate }}%
         </ion-row>
       </ion-col>
@@ -78,10 +87,13 @@
         <ion-row class="center-inner">
           {{ pick.champion.name }}
         </ion-row>
-        <ion-row *ngIf="pick.winRate >= 50" class="center-inner" style="color: #32db64">
+        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
           {{ pick.winRate }}%
         </ion-row>
-        <ion-row *ngIf="pick.winRate < 50" class="center-inner" style="color: #f53d3d">
+        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
+          {{ pick.winRate }}%
+        </ion-row>
+        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
           {{ pick.winRate }}%
         </ion-row>
       </ion-col>
@@ -97,10 +109,13 @@
         <ion-row class="center-inner">
           {{ pick.champion.name }}
         </ion-row>
-        <ion-row *ngIf="pick.winRate >= 50" class="center-inner" style="color: #32db64">
+        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
           {{ pick.winRate }}%
         </ion-row>
-        <ion-row *ngIf="pick.winRate < 50" class="center-inner" style="color: #f53d3d">
+        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
+          {{ pick.winRate }}%
+        </ion-row>
+        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
           {{ pick.winRate }}%
         </ion-row>
       </ion-col>
