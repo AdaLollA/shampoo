@@ -13,6 +13,7 @@ import {RiotGamesProvider, RiotGamesProviderMock} from '../providers/riot-games/
 import {HttpClientModule} from '@angular/common/http';
 import {IonicStorageModule} from '@ionic/storage';
 import {ChampionRowComponent} from '../components/champion-row/champion-row';
+import {DragulaModule} from 'ng2-dragula';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {ChampionRowComponent} from '../components/champion-row/champion-row';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    DragulaModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

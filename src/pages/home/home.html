@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" href="build/animate.css">
+</head>
+
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -55,7 +59,7 @@
   </ion-grid>
 
   <h3>Bans</h3>
-  <ion-list no-lines reorder="true" (ionItemReorder)="reorderPicks($event)">
+  <ion-list no-lines [dragula]='"bans"' [dragulaModel]="q1">
     <ion-item *ngFor="let ban of bans; let i = index" (click)="showChampionDetails(ban)">
       <ion-grid style="padding: 0 !important;">
         <ion-row class="center-horizontal">

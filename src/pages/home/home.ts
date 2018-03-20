@@ -7,6 +7,7 @@ import {Storage} from '@ionic/storage';
 import {AppConfiguration} from '../../app/app-config';
 import {IPicks} from '../../entities/Entity';
 import {version} from 'punycode';
+import {DragulaService} from 'ng2-dragula';
 
 @Component({
   selector: 'page-home',
@@ -32,7 +33,8 @@ export class HomePage {
   constructor(private riotBackend: RiotGamesProvider,
               private alertCtrl: AlertController,
               private storage: Storage,
-              private events: Events) {
+              private events: Events,
+              private dragula: DragulaService) {
     this.picks = {
       top: [],
       jgl: [],
@@ -48,7 +50,22 @@ export class HomePage {
     this.updateData();
 
     // Subscribe to configuration updates
-    this.subscribeToUpdates()
+    this.subscribeToUpdates();
+
+    // Init drag and drop
+    this.initDragula();
+  }
+
+  private initDragula() {
+    this.dragula.drop.subscribe((value) => {
+      console.log(value);
+      let alert = this.alertCtrl.create({
+        title: 'Item moved',
+        subTitle: 'So much fun!',
+        buttons: ['OK']
+      });
+      alert.present();
+    });
   }
 
   /**
@@ -178,15 +195,6 @@ export class HomePage {
       }]
     });
     debugAlert.present();
-  }
-
-  /**
-   * Called when a pick is reordered.
-   *
-   * @param indexes ReorderIndexes (from, to)
-   */
-  private reorderPicks(indexes) {
-    this.bans = reorderArray(this.bans, indexes);
   }
 
   /**
