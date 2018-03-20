@@ -10,13 +10,13 @@
           </ion-avatar>
         </ion-item>
       </ion-row>
-      <ion-row class="center-inner">
+      <ion-row *ngIf="showName" class="center-inner">
         {{ pick.champion.name }}
       </ion-row>
       <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
         {{ pick.winRate }}%
       </ion-row>
-      <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
+      <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: #B8860B">
         {{ pick.winRate }}%
       </ion-row>
       <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">

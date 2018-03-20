@@ -19,6 +19,11 @@ export class ChampionRowComponent {
   @Input()
   version: string;
 
+  @Input()
+  showName: boolean;
+
+  // todo click function output
+
   constructor() {
   }
 
