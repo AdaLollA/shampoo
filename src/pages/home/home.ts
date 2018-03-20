@@ -5,7 +5,7 @@ import {RiotGamesProviderResponse} from '../../providers/riot-games/riot-games-r
 import IChampion = RiotGamesProviderResponse.IChampion;
 import {Storage} from '@ionic/storage';
 import {AppConfiguration} from '../../app/app-config';
-import {IPicks} from '../../entities/Entity';
+import {IPick, IPicks} from '../../entities/Entity';
 import {version} from 'punycode';
 import {DragulaService} from 'ng2-dragula';
 
@@ -202,10 +202,10 @@ export class HomePage {
    *
    * @param {RiotGamesProviderResponse.IChampion} champ The champion that is going to be described in detail.
    */
-  private showChampionDetails(champ: IChampion) {
+  private showChampionDetails(pick: IChampion) {
     let alert = this.alertCtrl.create({
-      title: champ.name,
-      subTitle: champ.title,
+      title: pick.name,
+      subTitle: pick.title,
       buttons: ['OK']
     });
     alert.present();

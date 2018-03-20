@@ -1,6 +1,6 @@
 <ion-grid style="padding: 0px !important;">
   <ion-row class="center-horizontal">
-    <ion-col *ngFor="let pick of picks" (click)="showChampionDetails(pick)" class="center-outer" col-sm-2>
+    <ion-col *ngFor="let pick of picks" (click)="championClicked(pick)" class="center-outer" col-sm-2>
       <ion-row class="center-inner">
         <ion-item>
           <ion-avatar width="50" height="50">

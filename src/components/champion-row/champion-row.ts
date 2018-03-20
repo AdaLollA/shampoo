@@ -1,5 +1,7 @@
-import {Component, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {IPick, IPicks} from '../../entities/Entity';
+import {RiotGamesProviderResponse} from '../../providers/riot-games/riot-games-response';
+import IChampion = RiotGamesProviderResponse.IChampion;
 
 /**
  * Generated class for the ChampionRowComponent component.
@@ -24,9 +26,13 @@ export class ChampionRowComponent {
 
   // todo click function output
   @Output()
-  pickClick
+  pickClick = new EventEmitter<IChampion>();
 
   constructor() {
+  }
+
+  private championClicked(pick: IPick) {
+    this.pickClick.emit(pick.champion);
   }
 
 }
