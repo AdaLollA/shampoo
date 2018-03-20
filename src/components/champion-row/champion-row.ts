@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output} from '@angular/core';
 import {IPick, IPicks} from '../../entities/Entity';
 
 /**
@@ -13,16 +13,18 @@ import {IPick, IPicks} from '../../entities/Entity';
 })
 export class ChampionRowComponent {
 
-  @Input()
+  @Input('champions')
   picks: IPick[];
 
-  @Input()
+  @Input('version')
   version: string;
 
-  @Input()
+  @Input('show-name')
   showName: boolean;
 
   // todo click function output
+  @Output()
+  pickClick
 
   constructor() {
   }

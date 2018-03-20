@@ -21,7 +21,7 @@
         <b>TOP</b>
       </ion-col>
       <ion-col>
-        <champion-row [showName]="showName" [picks]="picks.top" [version]="version"></champion-row>
+        <champion-row [show-name]="showName" [champions]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
@@ -29,7 +29,7 @@
         <b>JGL</b>
       </ion-col>
       <ion-col>
-        <champion-row [showName]="showName" [picks]="picks.top" [version]="version"></champion-row>
+        <champion-row [show-name]="showName" [champions]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
@@ -37,7 +37,7 @@
         <b>MID</b>
       </ion-col>
       <ion-col>
-        <champion-row [showName]="showName" [picks]="picks.top" [version]="version"></champion-row>
+        <champion-row [show-name]="showName" [champions]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
@@ -45,7 +45,7 @@
         <b>ADC</b>
       </ion-col>
       <ion-col>
-        <champion-row [showName]="showName" [picks]="picks.top" [version]="version"></champion-row>
+        <champion-row [show-name]="showName" [champions]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
@@ -53,7 +53,7 @@
         <b>SUP</b>
       </ion-col>
       <ion-col>
-        <champion-row [showName]="showName" [picks]="picks.top" [version]="version"></champion-row>
+        <champion-row [show-name]="showName" [champions]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -66,7 +66,7 @@
           <ion-col style="max-width: 50px">
             <h1>{{ i+1 }}.</h1>
           </ion-col>
-          <ion-col style="max-width: 150px">
+          <ion-col style="max-width: 90px">
             <ion-item>
               <ion-avatar width="50" height="50">
                 <!-- ion-img not working with avatar, if laggy use ion-img for performance -->
