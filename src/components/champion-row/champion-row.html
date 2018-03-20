@@ -1,9 +1,14 @@
-<!-- Generated template for the ChampionRowComponent component -->
 <ion-grid style="padding: 0px !important;">
   <ion-row class="center-horizontal">
     <ion-col *ngFor="let pick of picks" (click)="showChampionDetails(pick)" class="center-outer" col-sm-2>
       <ion-row class="center-inner">
-        <ion-img width="50" height="50" src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{pick.champion.key}}.png"></ion-img>
+        <ion-item>
+          <ion-avatar width="50" height="50">
+            <!-- ion-img not working with avatar, if laggy use ion-img for performance -->
+            <!--<ion-img width="50" height="50" src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{pick.champion.key}}.png"></ion-img>-->
+            <img width="50" height="50" src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{pick.champion.key}}.png">
+          </ion-avatar>
+        </ion-item>
       </ion-row>
       <ion-row class="center-inner">
         {{ pick.champion.name }}
