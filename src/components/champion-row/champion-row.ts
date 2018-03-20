@@ -20,7 +20,6 @@ export class ChampionRowComponent {
   version: string;
 
   constructor() {
-    console.log('Hello ChampionRowComponent Component');
   }
 
 }
