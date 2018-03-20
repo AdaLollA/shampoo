@@ -1,4 +1,4 @@
-page-home {
+champion-row {
   .center-horizontal {
     display: flex !important;
     justify-content: center !important;
@@ -6,7 +6,12 @@ page-home {
     height: 100%;
   }
 
-  .lane-text-wrapper {
-    max-width: 50px;
+  .center-inner {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .center-outer {
+    text-align: center;
   }
 }

@@ -12,12 +12,14 @@ import {SettingsPage} from '../pages/settings/settings';
 import {RiotGamesProvider, RiotGamesProviderMock} from '../providers/riot-games/riot-games';
 import {HttpClientModule} from '@angular/common/http';
 import {IonicStorageModule} from '@ionic/storage';
+import {ChampionRowComponent} from '../components/champion-row/champion-row';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    SettingsPage
+    SettingsPage,
+    ChampionRowComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,7 @@ import {IonicStorageModule} from '@ionic/storage';
       useClass: IonicErrorHandler
     },
     {
-      provide: RiotGamesProvider.setAPIKey('RGAPI-8d6babed-da81-4628-8853-74b38966404a'),
+      provide: RiotGamesProvider.setAPIKey('RGAPI-11e62a6b-c429-44a9-9a62-e6b32bd0343a'),
       useClass: RiotGamesProviderMock
     },
     IonicStorageModule

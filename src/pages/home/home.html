@@ -8,116 +8,48 @@
 </ion-header>
 
 <ion-content padding>
+
+
   <h3>Picks</h3>
   <ion-grid>
     <ion-row class="center-horizontal">
-      <ion-col>
+      <ion-col class="lane-text-wrapper">
         <b>TOP</b>
       </ion-col>
-      <ion-col *ngFor="let pick of picks.top" (click)="showChampionDetails(pick)" class="center-outer">
-        <ion-row class="center-inner">
-          <img src="http://via.placeholder.com/50x50">
-        </ion-row>
-        <ion-row class="center-inner">
-          {{ pick.champion.name }}
-        </ion-row>
-        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
-          {{ pick.winRate }}%
-        </ion-row>
+      <ion-col>
+        <champion-row [picks]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
-      <ion-col>
+      <ion-col class="lane-text-wrapper">
         <b>JGL</b>
       </ion-col>
-      <ion-col *ngFor="let pick of picks.jgl" (click)="showChampionDetails(pick)" class="center-outer">
-        <ion-row class="center-inner">
-          <img src="http://via.placeholder.com/50x50">
-        </ion-row>
-        <ion-row class="center-inner">
-          {{ pick.champion.name }}
-        </ion-row>
-        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
-          {{ pick.winRate }}%
-        </ion-row>
+      <ion-col>
+        <champion-row [picks]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
-      <ion-col>
+      <ion-col class="lane-text-wrapper">
         <b>MID</b>
       </ion-col>
-      <ion-col *ngFor="let pick of picks.mid" (click)="showChampionDetails(pick)" class="center-outer">
-        <ion-row class="center-inner">
-          <img src="http://via.placeholder.com/50x50">
-        </ion-row>
-        <ion-row class="center-inner">
-          {{ pick.champion.name }}
-        </ion-row>
-        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
-          {{ pick.winRate }}%
-        </ion-row>
+      <ion-col>
+        <champion-row [picks]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
-      <ion-col>
+      <ion-col class="lane-text-wrapper">
         <b>ADC</b>
       </ion-col>
-      <ion-col *ngFor="let pick of picks.adc" (click)="showChampionDetails(pick)" class="center-outer">
-        <ion-row class="center-inner">
-          <img src="http://via.placeholder.com/50x50">
-        </ion-row>
-        <ion-row class="center-inner">
-          {{ pick.champion.name }}
-        </ion-row>
-        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
-          {{ pick.winRate }}%
-        </ion-row>
+      <ion-col>
+        <champion-row [picks]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
-      <ion-col>
+      <ion-col class="lane-text-wrapper">
         <b>SUP</b>
       </ion-col>
-      <ion-col *ngFor="let pick of picks.sup" (click)="showChampionDetails(pick)" class="center-outer">
-        <ion-row class="center-inner">
-          <img src="http://via.placeholder.com/50x50">
-        </ion-row>
-        <ion-row class="center-inner">
-          {{ pick.champion.name }}
-        </ion-row>
-        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
-          {{ pick.winRate }}%
-        </ion-row>
+      <ion-col>
+        <champion-row [picks]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
   </ion-grid>

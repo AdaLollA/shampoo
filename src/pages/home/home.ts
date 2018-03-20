@@ -6,6 +6,7 @@ import IChampion = RiotGamesProviderResponse.IChampion;
 import {Storage} from '@ionic/storage';
 import {AppConfiguration} from '../../app/app-config';
 import {IPicks} from '../../entities/Entity';
+import {version} from 'punycode';
 
 @Component({
   selector: 'page-home',
@@ -26,6 +27,7 @@ export class HomePage {
   // Cached properties todo read from properties and update on event
   private showName: boolean;
   private showTitle: boolean;
+  private version: string;
 
   constructor(private riotBackend: RiotGamesProvider,
               private alertCtrl: AlertController,
@@ -103,6 +105,9 @@ export class HomePage {
    * Load local configurations from storage.
    */
   private loadFromConfig() {
+    this.storage.get(AppConfiguration.VERSION).then((val) => {
+      this.version = val;
+    })
     this.storage.get(AppConfiguration.SHOW_CHAMPION_NAMES).then((val) => {
       this.showName = val;
     });
