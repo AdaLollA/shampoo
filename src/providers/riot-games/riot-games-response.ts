@@ -9,6 +9,12 @@ export module RiotGamesProviderResponse {
     summonerLevel: number;
   }
 
+  export interface ChampionResponse {
+    data: IChampion[];
+    type: string;
+    version
+  }
+
   export interface IChampion {
     name: string;
     id: number;
