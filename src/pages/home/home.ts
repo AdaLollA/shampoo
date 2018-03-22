@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {RiotGamesProvider} from '../../providers/riot-games/riot-games';
-import {AlertController, Events, reorderArray} from 'ionic-angular';
+import {AlertController, Events, NavController, reorderArray} from 'ionic-angular';
 import {RiotGamesProviderResponse} from '../../providers/riot-games/riot-games-response';
 import IChampion = RiotGamesProviderResponse.IChampion;
 import {Storage} from '@ionic/storage';

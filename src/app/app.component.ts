@@ -1,12 +1,12 @@
-import { Component, ViewChild } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {AlertController, Events, Nav, Platform} from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import {StatusBar} from '@ionic-native/status-bar';
+import {SplashScreen} from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import {SettingsPage} from "../pages/settings/settings";
-import {AppConfiguration} from "./app-config";
-import {IonicStorageModule, Storage} from "@ionic/storage";
+import {HomePage} from '../pages/home/home';
+import {SettingsPage} from '../pages/settings/settings';
+import {AppConfiguration} from './app-config';
+import {IonicStorageModule, Storage} from '@ionic/storage';
 import SUMMONER_NAME = AppConfiguration.SUMMONER_NAME;
 import PROPERTY_CHANGED = AppConfiguration.AppEvents.PROPERTY_CHANGED;
 
@@ -21,14 +21,14 @@ export class MyApp {
 
   rootPage: any;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform,
               public statusBar: StatusBar,
               public splashScreen: SplashScreen,
-              private storage: Storage,
-              private alertCtrl: AlertController,
-              private events: Events) {
+              public storage: Storage,
+              public alertCtrl: AlertController,
+              public events: Events) {
     this.initializeApp();
   }
 
@@ -48,19 +48,19 @@ export class MyApp {
               this.storage.set(setting.key, setting.value);
             }
           }
-
-          this.homePage = HomePage;
-          this.settingsPage = SettingsPage;
-
-          this.rootPage = this.homePage;
-
-          // Load pages after setting initial configurations
-          this.pages = [
-            { title: 'Home', component: this.homePage },
-            { title: 'Settings', component: this.settingsPage}
-          ];
         });
-      })
+
+        this.homePage = HomePage;
+        this.settingsPage = SettingsPage;
+
+        this.rootPage = this.homePage;
+
+        // Load pages after setting initial configurations
+        this.pages = [
+          {title: 'Home', component: this.homePage},
+          {title: 'Settings', component: this.settingsPage}
+        ];
+      });
     });
   }
 
@@ -73,7 +73,7 @@ export class MyApp {
   private showPrompt() {
     let prompt = this.alertCtrl.create({
       title: 'Welcome',
-      message: "Please enter your summoner name.",
+      message: 'Please enter your summoner name.',
       inputs: [
         {
           name: 'summonername',
