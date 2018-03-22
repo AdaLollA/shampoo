@@ -59,7 +59,7 @@
   </ion-grid>
 
   <h3>Bans</h3>
-  <ion-list no-lines [dragula]='"bans"' [dragulaModel]="q1">
+  <ion-list no-lines [dragula]="banBag" [dragulaModel]="bans">
     <ion-item *ngFor="let ban of bans; let i = index" (click)="showChampionDetails(ban)">
       <ion-grid style="padding: 0 !important;">
         <ion-row class="center-horizontal">
@@ -78,6 +78,9 @@
           <ion-col>
             <div *ngIf="showName" style="display: inline-block;"><b>{{ ban.name }}</b></div>
             <div *ngIf="showTitle" style="display: inline-block;">- {{ ban.title }}</div>
+          </ion-col>
+          <ion-col>
+            <ion-icon class="handle" style="min-width: 50px !important; min-height: 50px !important;" name="move" item-start></ion-icon>
           </ion-col>
         </ion-row>
       </ion-grid>

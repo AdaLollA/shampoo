@@ -25,10 +25,13 @@ export class HomePage {
   private picks: IPicks;
   private bans: IChampion[] = [];
 
-  // Cached properties todo read from properties and update on event
+  // Cached properties
   private showName: boolean;
   private showTitle: boolean;
   private version: string;
+
+  // Dragula data
+  private banBag: string = 'ban-bag';
 
   constructor(private riotBackend: RiotGamesProvider,
               private alertCtrl: AlertController,
@@ -56,16 +59,29 @@ export class HomePage {
     this.initDragula();
   }
 
+  /**
+   * Defines the darg and drop hooks and handlers
+   */
   private initDragula() {
-    this.dragula.drop.subscribe((value) => {
-      console.log(value);
-      let alert = this.alertCtrl.create({
-        title: 'Item moved',
-        subTitle: 'So much fun!',
-        buttons: ['OK']
-      });
-      alert.present();
+    this.dragula.setOptions(this.banBag, {
+      moves: function (el, container, handle) {
+        return handle.className === 'handle icon icon-md ion-md-move';
+      }
     });
+    this.dragula.drop.subscribe((val) => {
+      console.log(val);
+      // todo
+    })
+  }
+
+  /**
+   * Called when the element is destroyed. Clears the dragula bags
+   * so that they can be reattached when the view is rebuilt.
+   */
+  public ngOnDestroy() {
+    if (this.dragula.find('ban-bag') !== undefined) {
+      this.dragula.destroy('ban-bag');
+    }
   }
 
   /**
@@ -124,7 +140,7 @@ export class HomePage {
   private loadFromConfig() {
     this.storage.get(AppConfiguration.VERSION).then((val) => {
       this.version = val;
-    })
+    });
     this.storage.get(AppConfiguration.SHOW_CHAMPION_NAMES).then((val) => {
       this.showName = val;
     });
