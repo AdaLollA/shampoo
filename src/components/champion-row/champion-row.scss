@@ -1,17 +1,18 @@
-page-home {
+champion-row {
   .center-horizontal {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    max-width: 500px;
     height: 100%;
   }
 
-  .lane-text-wrapper {
-    max-width: 50px;
+  .center-inner {
+    display: block;
+    margin: 0 auto;
   }
 
-  .handle {
-    display: table-cell;
-    vertical-align: middle;
+  .center-outer {
+    text-align: center;
   }
 }
