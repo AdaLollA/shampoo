@@ -3,7 +3,7 @@ import {IonicStorageModule} from '@ionic/storage';
 import {IonicModule, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
-import {PlatformMock} from '../../test-config/mocks-ionic/platform-mock';
+import {MockPlatform} from 'ionic-angular/util/mock-providers';
 import {SplashScreenMock} from '../../test-config/mocks-ionic/splash-screen-mock';
 import {StatusBarMock} from '../../test-config/mocks-ionic/status-bar-mock';
 import {StorageMock} from '../../test-config/mocks-ionic/storage-mock';
@@ -23,7 +23,7 @@ describe('app.component.ts tests', () => {
       providers: [
         {provide: StatusBar, useClass: StatusBarMock},
         {provide: SplashScreen, useClass: SplashScreenMock},
-        {provide: Platform, useClass: PlatformMock},
+        {provide: Platform, useClass: MockPlatform},
         {provide: IonicStorageModule, useClass: StorageMock}
       ]
     })
@@ -39,12 +39,12 @@ describe('app.component.ts tests', () => {
   });
 
   it('Providers should be created', () => {
-    expect(component.platform).toBeDefined();
-    expect(component.statusBar).toBeDefined();
-    expect(component.splashScreen).toBeDefined();
-    expect(component.storage).toBeDefined();
-    expect(component.alertCtrl).toBeDefined();
-    expect(component.events).toBeDefined();
+    expect(component.platform).toBeTruthy();
+    expect(component.statusBar).toBeTruthy();
+    expect(component.splashScreen).toBeTruthy();
+    expect(component.storage).toBeTruthy();
+    expect(component.alertCtrl).toBeTruthy();
+    expect(component.events).toBeTruthy();
   });
 
   it('should have two pages', () => {
