@@ -5,7 +5,9 @@ import {RiotGamesProviderResponse} from '../../providers/riot-games/riot-games-r
 import IChampion = RiotGamesProviderResponse.IChampion;
 import {Storage} from '@ionic/storage';
 import {AppConfiguration} from '../../app/app-config';
-import {IPicks} from '../../entities/Entity';
+import {IPick, IPicks} from '../../entities/Entity';
+import {version} from 'punycode';
+import {DragulaService} from 'ng2-dragula';
 
 @Component({
   selector: 'page-home',
@@ -23,14 +25,19 @@ export class HomePage {
   private picks: IPicks;
   private bans: IChampion[] = [];
 
-  // Cached properties todo read from properties and update on event
+  // Cached properties
   private showName: boolean;
   private showTitle: boolean;
+  private version: string;
+
+  // Dragula data
+  private banBag: string = 'ban-bag';
 
   constructor(private riotBackend: RiotGamesProvider,
               private alertCtrl: AlertController,
               private storage: Storage,
-              private events: Events) {
+              private events: Events,
+              private dragula: DragulaService) {
     this.picks = {
       top: [],
       jgl: [],
@@ -46,7 +53,35 @@ export class HomePage {
     this.updateData();
 
     // Subscribe to configuration updates
-    this.subscribeToUpdates()
+    this.subscribeToUpdates();
+
+    // Init drag and drop
+    this.initDragula();
+  }
+
+  /**
+   * Defines the darg and drop hooks and handlers
+   */
+  private initDragula() {
+    this.dragula.setOptions(this.banBag, {
+      moves: function (el, container, handle) {
+        return handle.className === 'handle icon icon-md ion-md-move';
+      }
+    });
+    this.dragula.drop.subscribe((val) => {
+      console.log(val);
+      // todo
+    })
+  }
+
+  /**
+   * Called when the element is destroyed. Clears the dragula bags
+   * so that they can be reattached when the view is rebuilt.
+   */
+  public ngOnDestroy() {
+    if (this.dragula.find('ban-bag') !== undefined) {
+      this.dragula.destroy('ban-bag');
+    }
   }
 
   /**
@@ -103,6 +138,9 @@ export class HomePage {
    * Load local configurations from storage.
    */
   private loadFromConfig() {
+    this.storage.get(AppConfiguration.VERSION).then((val) => {
+      this.version = val;
+    });
     this.storage.get(AppConfiguration.SHOW_CHAMPION_NAMES).then((val) => {
       this.showName = val;
     });
@@ -176,23 +214,14 @@ export class HomePage {
   }
 
   /**
-   * Called when a pick is reordered.
-   *
-   * @param indexes ReorderIndexes (from, to)
-   */
-  private reorderPicks(indexes) {
-    this.bans = reorderArray(this.bans, indexes);
-  }
-
-  /**
    * Creates and presents a dialog that provides details about a specific champion
    *
    * @param {RiotGamesProviderResponse.IChampion} champ The champion that is going to be described in detail.
    */
-  private showChampionDetails(champ: IChampion) {
+  private showChampionDetails(pick: IChampion) {
     let alert = this.alertCtrl.create({
-      title: champ.name,
-      subTitle: champ.title,
+      title: pick.name,
+      subTitle: pick.title,
       buttons: ['OK']
     });
     alert.present();

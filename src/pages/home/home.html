@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" href="build/animate.css">
+</head>
+
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -8,134 +12,75 @@
 </ion-header>
 
 <ion-content padding>
+
+
   <h3>Picks</h3>
   <ion-grid>
     <ion-row class="center-horizontal">
-      <ion-col>
+      <ion-col class="lane-text-wrapper">
         <b>TOP</b>
       </ion-col>
-      <ion-col *ngFor="let pick of picks.top" (click)="showChampionDetails(pick)" class="center-outer">
-        <ion-row class="center-inner">
-          <img src="http://via.placeholder.com/50x50">
-        </ion-row>
-        <ion-row class="center-inner">
-          {{ pick.champion.name }}
-        </ion-row>
-        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
-          {{ pick.winRate }}%
-        </ion-row>
+      <ion-col>
+        <champion-row (pickClick)="showChampionDetails($event)" [show-name]="showName" [champions]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
-      <ion-col>
+      <ion-col class="lane-text-wrapper">
         <b>JGL</b>
       </ion-col>
-      <ion-col *ngFor="let pick of picks.jgl" (click)="showChampionDetails(pick)" class="center-outer">
-        <ion-row class="center-inner">
-          <img src="http://via.placeholder.com/50x50">
-        </ion-row>
-        <ion-row class="center-inner">
-          {{ pick.champion.name }}
-        </ion-row>
-        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
-          {{ pick.winRate }}%
-        </ion-row>
+      <ion-col>
+        <champion-row (pickClick)="showChampionDetails($event)" [show-name]="showName" [champions]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
-      <ion-col>
+      <ion-col class="lane-text-wrapper">
         <b>MID</b>
       </ion-col>
-      <ion-col *ngFor="let pick of picks.mid" (click)="showChampionDetails(pick)" class="center-outer">
-        <ion-row class="center-inner">
-          <img src="http://via.placeholder.com/50x50">
-        </ion-row>
-        <ion-row class="center-inner">
-          {{ pick.champion.name }}
-        </ion-row>
-        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
-          {{ pick.winRate }}%
-        </ion-row>
+      <ion-col>
+        <champion-row (pickClick)="showChampionDetails($event)" [show-name]="showName" [champions]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
-      <ion-col>
+      <ion-col class="lane-text-wrapper">
         <b>ADC</b>
       </ion-col>
-      <ion-col *ngFor="let pick of picks.adc" (click)="showChampionDetails(pick)" class="center-outer">
-        <ion-row class="center-inner">
-          <img src="http://via.placeholder.com/50x50">
-        </ion-row>
-        <ion-row class="center-inner">
-          {{ pick.champion.name }}
-        </ion-row>
-        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
-          {{ pick.winRate }}%
-        </ion-row>
+      <ion-col>
+        <champion-row (pickClick)="showChampionDetails($event)" [show-name]="showName" [champions]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
-      <ion-col>
+      <ion-col class="lane-text-wrapper">
         <b>SUP</b>
       </ion-col>
-      <ion-col *ngFor="let pick of picks.sup" (click)="showChampionDetails(pick)" class="center-outer">
-        <ion-row class="center-inner">
-          <img src="http://via.placeholder.com/50x50">
-        </ion-row>
-        <ion-row class="center-inner">
-          {{ pick.champion.name }}
-        </ion-row>
-        <ion-row *ngIf="pick.winRate >= 60" class="center-inner" style="color: #32db64">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate < 60 && pick.winRate > 40" class="center-inner" style="color: darkgoldenrod">
-          {{ pick.winRate }}%
-        </ion-row>
-        <ion-row *ngIf="pick.winRate <= 40" class="center-inner" style="color: #f53d3d">
-          {{ pick.winRate }}%
-        </ion-row>
+      <ion-col>
+        <champion-row (pickClick)="showChampionDetails($event)" [show-name]="showName" [champions]="picks.top" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
   </ion-grid>
 
   <h3>Bans</h3>
-  <ion-list no-lines reorder="true" (ionItemReorder)="reorderPicks($event)">
+  <ion-list no-lines [dragula]="banBag" [dragulaModel]="bans">
     <ion-item *ngFor="let ban of bans; let i = index" (click)="showChampionDetails(ban)">
       <ion-grid style="padding: 0 !important;">
         <ion-row class="center-horizontal">
           <ion-col style="max-width: 50px">
             <h1>{{ i+1 }}.</h1>
           </ion-col>
-          <ion-col style="max-width: 80px">
-            <img src="http://via.placeholder.com/50x50">
+          <ion-col style="max-width: 90px">
+            <ion-item>
+              <ion-avatar width="50" height="50">
+                <!-- ion-img not working with avatar, if laggy use ion-img for performance -->
+                <!--<ion-img width="50" height="50" src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{pick.champion.key}}.png"></ion-img>-->
+                <img width="50" height="50" src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{ban.key}}.png">
+              </ion-avatar>
+            </ion-item>
           </ion-col>
           <ion-col>
             <div *ngIf="showName" style="display: inline-block;"><b>{{ ban.name }}</b></div>
             <div *ngIf="showTitle" style="display: inline-block;">- {{ ban.title }}</div>
+          </ion-col>
+          <ion-col>
+            <ion-icon class="handle" style="min-width: 50px !important; min-height: 50px !important;" name="move" item-start></ion-icon>
           </ion-col>
         </ion-row>
       </ion-grid>
