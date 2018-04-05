@@ -7,6 +7,7 @@ import {RiotGamesProviderSamples} from './riot-games-samples';
 import {HttpClient} from '@angular/common/http';
 import {RiotGamesProviderEndpoints} from './riot-games-endpoints';
 import ChampionResponse = RiotGamesProviderResponse.ChampionResponse;
+import IMastery = RiotGamesProviderResponse.IMastery;
 
 /**
  * Base interface for the capabilities of the RIOT-Games API used in this application
@@ -15,10 +16,16 @@ interface IRiotGamesEndpoints {
   getChampions(): Promise<IChampion[]>;
 
   getLatestVersion(): Promise<string>;
+
+  getChampionMastery(): Promise<IMastery[]>;
 }
 
 @Injectable()
 export class RiotGamesProvider extends ApiBaseProvider implements IRiotGamesEndpoints {
+  getChampionMastery(): Promise<RiotGamesProviderResponse.IMastery[]> {
+    // todo auto generated function
+    return undefined;
+  }
 
   private static apiKey: string
 
@@ -86,6 +93,15 @@ export class RiotGamesProvider extends ApiBaseProvider implements IRiotGamesEndp
  * A mocked version of the RiotGamesProvider
  */
 export class RiotGamesProviderMock implements IRiotGamesEndpoints {
+  getChampionMastery(): Promise<RiotGamesProviderResponse.IMastery[]> {
+    console.warn('You are currently using a mocked getChampionMastery() call!');
+    return new Promise<IMastery[]>((resolve, reject) => {
+      let masteries: IMastery[] = [];
+      let res: any = RiotGamesProviderSamples.GET_MASTERY;
+      console.log(RiotGamesProviderSamples.GET_MASTERY);
+      //resolve(masteries);
+    });
+  }
 
   public getChampions(): Promise<IChampion[]> {
     console.warn('You are currently using a mocked getChampions() call!');

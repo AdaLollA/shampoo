@@ -196,4 +196,1173 @@ export class RiotGamesProviderSamples {
     '    "0.151.101",\n' +
     '    "0.151.2"\n' +
     ']');
+
+  public static readonly GET_MASTERY: any = JSON.parse('[\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 222,\n' +
+    '        "championLevel": 7,\n' +
+    '        "championPoints": 73363,\n' +
+    '        "lastPlayTime": 1522453146000,\n' +
+    '        "championPointsSinceLastLevel": 51763,\n' +
+    '        "championPointsUntilNextLevel": 0,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 22,\n' +
+    '        "championLevel": 7,\n' +
+    '        "championPoints": 60406,\n' +
+    '        "lastPlayTime": 1521493987000,\n' +
+    '        "championPointsSinceLastLevel": 38806,\n' +
+    '        "championPointsUntilNextLevel": 0,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 110,\n' +
+    '        "championLevel": 6,\n' +
+    '        "championPoints": 38785,\n' +
+    '        "lastPlayTime": 1521723015000,\n' +
+    '        "championPointsSinceLastLevel": 17185,\n' +
+    '        "championPointsUntilNextLevel": 0,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 1\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 203,\n' +
+    '        "championLevel": 6,\n' +
+    '        "championPoints": 31959,\n' +
+    '        "lastPlayTime": 1522425847000,\n' +
+    '        "championPointsSinceLastLevel": 10359,\n' +
+    '        "championPointsUntilNextLevel": 0,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 96,\n' +
+    '        "championLevel": 6,\n' +
+    '        "championPoints": 31308,\n' +
+    '        "lastPlayTime": 1520895014000,\n' +
+    '        "championPointsSinceLastLevel": 9708,\n' +
+    '        "championPointsUntilNextLevel": 0,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 1\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 122,\n' +
+    '        "championLevel": 5,\n' +
+    '        "championPoints": 28715,\n' +
+    '        "lastPlayTime": 1521325582000,\n' +
+    '        "championPointsSinceLastLevel": 7115,\n' +
+    '        "championPointsUntilNextLevel": 0,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 1\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 34,\n' +
+    '        "championLevel": 6,\n' +
+    '        "championPoints": 27940,\n' +
+    '        "lastPlayTime": 1522447130000,\n' +
+    '        "championPointsSinceLastLevel": 6340,\n' +
+    '        "championPointsUntilNextLevel": 0,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 105,\n' +
+    '        "championLevel": 5,\n' +
+    '        "championPoints": 27619,\n' +
+    '        "lastPlayTime": 1508357491000,\n' +
+    '        "championPointsSinceLastLevel": 6019,\n' +
+    '        "championPointsUntilNextLevel": 0,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 92,\n' +
+    '        "championLevel": 5,\n' +
+    '        "championPoints": 25565,\n' +
+    '        "lastPlayTime": 1522776191000,\n' +
+    '        "championPointsSinceLastLevel": 3965,\n' +
+    '        "championPointsUntilNextLevel": 0,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 126,\n' +
+    '        "championLevel": 5,\n' +
+    '        "championPoints": 21640,\n' +
+    '        "lastPlayTime": 1510441269000,\n' +
+    '        "championPointsSinceLastLevel": 40,\n' +
+    '        "championPointsUntilNextLevel": 0,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 119,\n' +
+    '        "championLevel": 4,\n' +
+    '        "championPoints": 19851,\n' +
+    '        "lastPlayTime": 1522358372000,\n' +
+    '        "championPointsSinceLastLevel": 7251,\n' +
+    '        "championPointsUntilNextLevel": 1749,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 50,\n' +
+    '        "championLevel": 4,\n' +
+    '        "championPoints": 17732,\n' +
+    '        "lastPlayTime": 1522175034000,\n' +
+    '        "championPointsSinceLastLevel": 5132,\n' +
+    '        "championPointsUntilNextLevel": 3868,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 150,\n' +
+    '        "championLevel": 4,\n' +
+    '        "championPoints": 17256,\n' +
+    '        "lastPlayTime": 1506386029000,\n' +
+    '        "championPointsSinceLastLevel": 4656,\n' +
+    '        "championPointsUntilNextLevel": 4344,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 10,\n' +
+    '        "championLevel": 4,\n' +
+    '        "championPoints": 16136,\n' +
+    '        "lastPlayTime": 1517869470000,\n' +
+    '        "championPointsSinceLastLevel": 3536,\n' +
+    '        "championPointsUntilNextLevel": 5464,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 81,\n' +
+    '        "championLevel": 4,\n' +
+    '        "championPoints": 15926,\n' +
+    '        "lastPlayTime": 1499095840000,\n' +
+    '        "championPointsSinceLastLevel": 3326,\n' +
+    '        "championPointsUntilNextLevel": 5674,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 39,\n' +
+    '        "championLevel": 4,\n' +
+    '        "championPoints": 15210,\n' +
+    '        "lastPlayTime": 1517233742000,\n' +
+    '        "championPointsSinceLastLevel": 2610,\n' +
+    '        "championPointsUntilNextLevel": 6390,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 102,\n' +
+    '        "championLevel": 4,\n' +
+    '        "championPoints": 14779,\n' +
+    '        "lastPlayTime": 1511524416000,\n' +
+    '        "championPointsSinceLastLevel": 2179,\n' +
+    '        "championPointsUntilNextLevel": 6821,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 64,\n' +
+    '        "championLevel": 4,\n' +
+    '        "championPoints": 13769,\n' +
+    '        "lastPlayTime": 1522269696000,\n' +
+    '        "championPointsSinceLastLevel": 1169,\n' +
+    '        "championPointsUntilNextLevel": 7831,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 83,\n' +
+    '        "championLevel": 4,\n' +
+    '        "championPoints": 13553,\n' +
+    '        "lastPlayTime": 1519137193000,\n' +
+    '        "championPointsSinceLastLevel": 953,\n' +
+    '        "championPointsUntilNextLevel": 8047,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 63,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 11474,\n' +
+    '        "lastPlayTime": 1522792359000,\n' +
+    '        "championPointsSinceLastLevel": 5474,\n' +
+    '        "championPointsUntilNextLevel": 1126,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 268,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 10721,\n' +
+    '        "lastPlayTime": 1510009687000,\n' +
+    '        "championPointsSinceLastLevel": 4721,\n' +
+    '        "championPointsUntilNextLevel": 1879,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 67,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 10479,\n' +
+    '        "lastPlayTime": 1513715128000,\n' +
+    '        "championPointsSinceLastLevel": 4479,\n' +
+    '        "championPointsUntilNextLevel": 2121,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 1,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 10408,\n' +
+    '        "lastPlayTime": 1484084412000,\n' +
+    '        "championPointsSinceLastLevel": 4408,\n' +
+    '        "championPointsUntilNextLevel": 2192,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 106,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 10206,\n' +
+    '        "lastPlayTime": 1520026439000,\n' +
+    '        "championPointsSinceLastLevel": 4206,\n' +
+    '        "championPointsUntilNextLevel": 2394,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 51,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 9985,\n' +
+    '        "lastPlayTime": 1522451412000,\n' +
+    '        "championPointsSinceLastLevel": 3985,\n' +
+    '        "championPointsUntilNextLevel": 2615,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 498,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 9977,\n' +
+    '        "lastPlayTime": 1509495927000,\n' +
+    '        "championPointsSinceLastLevel": 3977,\n' +
+    '        "championPointsUntilNextLevel": 2623,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 28,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 9736,\n' +
+    '        "lastPlayTime": 1508881267000,\n' +
+    '        "championPointsSinceLastLevel": 3736,\n' +
+    '        "championPointsUntilNextLevel": 2864,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 133,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 8901,\n' +
+    '        "lastPlayTime": 1494888240000,\n' +
+    '        "championPointsSinceLastLevel": 2901,\n' +
+    '        "championPointsUntilNextLevel": 3699,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 69,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 7922,\n' +
+    '        "lastPlayTime": 1512765627000,\n' +
+    '        "championPointsSinceLastLevel": 1922,\n' +
+    '        "championPointsUntilNextLevel": 4678,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 4,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 7797,\n' +
+    '        "lastPlayTime": 1502396204000,\n' +
+    '        "championPointsSinceLastLevel": 1797,\n' +
+    '        "championPointsUntilNextLevel": 4803,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 75,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 7542,\n' +
+    '        "lastPlayTime": 1521669930000,\n' +
+    '        "championPointsSinceLastLevel": 1542,\n' +
+    '        "championPointsUntilNextLevel": 5058,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 114,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 7395,\n' +
+    '        "lastPlayTime": 1521476900000,\n' +
+    '        "championPointsSinceLastLevel": 1395,\n' +
+    '        "championPointsUntilNextLevel": 5205,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 2,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 7367,\n' +
+    '        "lastPlayTime": 1520537884000,\n' +
+    '        "championPointsSinceLastLevel": 1367,\n' +
+    '        "championPointsUntilNextLevel": 5233,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 412,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 7332,\n' +
+    '        "lastPlayTime": 1497296549000,\n' +
+    '        "championPointsSinceLastLevel": 1332,\n' +
+    '        "championPointsUntilNextLevel": 5268,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 91,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 7176,\n' +
+    '        "lastPlayTime": 1488555550000,\n' +
+    '        "championPointsSinceLastLevel": 1176,\n' +
+    '        "championPointsUntilNextLevel": 5424,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 23,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 6608,\n' +
+    '        "lastPlayTime": 1522445660000,\n' +
+    '        "championPointsSinceLastLevel": 608,\n' +
+    '        "championPointsUntilNextLevel": 5992,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 15,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 6605,\n' +
+    '        "lastPlayTime": 1516671741000,\n' +
+    '        "championPointsSinceLastLevel": 605,\n' +
+    '        "championPointsUntilNextLevel": 5995,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 429,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 6575,\n' +
+    '        "lastPlayTime": 1522356626000,\n' +
+    '        "championPointsSinceLastLevel": 575,\n' +
+    '        "championPointsUntilNextLevel": 6025,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 58,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 6465,\n' +
+    '        "lastPlayTime": 1491859762000,\n' +
+    '        "championPointsSinceLastLevel": 465,\n' +
+    '        "championPointsUntilNextLevel": 6135,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 29,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 6224,\n' +
+    '        "lastPlayTime": 1520540520000,\n' +
+    '        "championPointsSinceLastLevel": 224,\n' +
+    '        "championPointsUntilNextLevel": 6376,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 14,\n' +
+    '        "championLevel": 3,\n' +
+    '        "championPoints": 6140,\n' +
+    '        "lastPlayTime": 1522450137000,\n' +
+    '        "championPointsSinceLastLevel": 140,\n' +
+    '        "championPointsUntilNextLevel": 6460,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 245,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 5834,\n' +
+    '        "lastPlayTime": 1522770150000,\n' +
+    '        "championPointsSinceLastLevel": 4034,\n' +
+    '        "championPointsUntilNextLevel": 166,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 80,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 5395,\n' +
+    '        "lastPlayTime": 1497968048000,\n' +
+    '        "championPointsSinceLastLevel": 3595,\n' +
+    '        "championPointsUntilNextLevel": 605,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 24,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 5080,\n' +
+    '        "lastPlayTime": 1522774611000,\n' +
+    '        "championPointsSinceLastLevel": 3280,\n' +
+    '        "championPointsUntilNextLevel": 920,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 26,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 4954,\n' +
+    '        "lastPlayTime": 1521242223000,\n' +
+    '        "championPointsSinceLastLevel": 3154,\n' +
+    '        "championPointsUntilNextLevel": 1046,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 20,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 4557,\n' +
+    '        "lastPlayTime": 1495042397000,\n' +
+    '        "championPointsSinceLastLevel": 2757,\n' +
+    '        "championPointsUntilNextLevel": 1443,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 143,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 4287,\n' +
+    '        "lastPlayTime": 1521150131000,\n' +
+    '        "championPointsSinceLastLevel": 2487,\n' +
+    '        "championPointsUntilNextLevel": 1713,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 86,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 4189,\n' +
+    '        "lastPlayTime": 1502397876000,\n' +
+    '        "championPointsSinceLastLevel": 2389,\n' +
+    '        "championPointsUntilNextLevel": 1811,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 432,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 3877,\n' +
+    '        "lastPlayTime": 1521156445000,\n' +
+    '        "championPointsSinceLastLevel": 2077,\n' +
+    '        "championPointsUntilNextLevel": 2123,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 17,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 3728,\n' +
+    '        "lastPlayTime": 1502399472000,\n' +
+    '        "championPointsSinceLastLevel": 1928,\n' +
+    '        "championPointsUntilNextLevel": 2272,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 112,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 3522,\n' +
+    '        "lastPlayTime": 1520536307000,\n' +
+    '        "championPointsSinceLastLevel": 1722,\n' +
+    '        "championPointsUntilNextLevel": 2478,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 18,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 3363,\n' +
+    '        "lastPlayTime": 1508714046000,\n' +
+    '        "championPointsSinceLastLevel": 1563,\n' +
+    '        "championPointsUntilNextLevel": 2637,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 11,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 3174,\n' +
+    '        "lastPlayTime": 1519084986000,\n' +
+    '        "championPointsSinceLastLevel": 1374,\n' +
+    '        "championPointsUntilNextLevel": 2826,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 41,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 3068,\n' +
+    '        "lastPlayTime": 1511907480000,\n' +
+    '        "championPointsSinceLastLevel": 1268,\n' +
+    '        "championPointsUntilNextLevel": 2932,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 40,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 2859,\n' +
+    '        "lastPlayTime": 1485453610000,\n' +
+    '        "championPointsSinceLastLevel": 1059,\n' +
+    '        "championPointsUntilNextLevel": 3141,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 84,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 2835,\n' +
+    '        "lastPlayTime": 1482713818000,\n' +
+    '        "championPointsSinceLastLevel": 1035,\n' +
+    '        "championPointsUntilNextLevel": 3165,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 61,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 2747,\n' +
+    '        "lastPlayTime": 1488839783000,\n' +
+    '        "championPointsSinceLastLevel": 947,\n' +
+    '        "championPointsUntilNextLevel": 3253,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 55,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 2714,\n' +
+    '        "lastPlayTime": 1515172792000,\n' +
+    '        "championPointsSinceLastLevel": 914,\n' +
+    '        "championPointsUntilNextLevel": 3286,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 68,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 2708,\n' +
+    '        "lastPlayTime": 1522272261000,\n' +
+    '        "championPointsSinceLastLevel": 908,\n' +
+    '        "championPointsUntilNextLevel": 3292,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 8,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 2582,\n' +
+    '        "lastPlayTime": 1474674056000,\n' +
+    '        "championPointsSinceLastLevel": 782,\n' +
+    '        "championPointsUntilNextLevel": 3418,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 236,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 2556,\n' +
+    '        "lastPlayTime": 1490818545000,\n' +
+    '        "championPointsSinceLastLevel": 756,\n' +
+    '        "championPointsUntilNextLevel": 3444,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 35,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 2555,\n' +
+    '        "lastPlayTime": 1502472645000,\n' +
+    '        "championPointsSinceLastLevel": 755,\n' +
+    '        "championPointsUntilNextLevel": 3445,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 99,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 2396,\n' +
+    '        "lastPlayTime": 1522794322000,\n' +
+    '        "championPointsSinceLastLevel": 596,\n' +
+    '        "championPointsUntilNextLevel": 3604,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 13,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 2292,\n' +
+    '        "lastPlayTime": 1495040965000,\n' +
+    '        "championPointsSinceLastLevel": 492,\n' +
+    '        "championPointsUntilNextLevel": 3708,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 82,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 2210,\n' +
+    '        "lastPlayTime": 1522419531000,\n' +
+    '        "championPointsSinceLastLevel": 410,\n' +
+    '        "championPointsUntilNextLevel": 3790,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 38,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 2022,\n' +
+    '        "lastPlayTime": 1520534218000,\n' +
+    '        "championPointsSinceLastLevel": 222,\n' +
+    '        "championPointsUntilNextLevel": 3978,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 127,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 2021,\n' +
+    '        "lastPlayTime": 1506727216000,\n' +
+    '        "championPointsSinceLastLevel": 221,\n' +
+    '        "championPointsUntilNextLevel": 3979,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 98,\n' +
+    '        "championLevel": 2,\n' +
+    '        "championPoints": 1848,\n' +
+    '        "lastPlayTime": 1496925188000,\n' +
+    '        "championPointsSinceLastLevel": 48,\n' +
+    '        "championPointsUntilNextLevel": 4152,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 201,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 1591,\n' +
+    '        "lastPlayTime": 1501623643000,\n' +
+    '        "championPointsSinceLastLevel": 1591,\n' +
+    '        "championPointsUntilNextLevel": 209,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 107,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 1543,\n' +
+    '        "lastPlayTime": 1522441580000,\n' +
+    '        "championPointsSinceLastLevel": 1543,\n' +
+    '        "championPointsUntilNextLevel": 257,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 12,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 1494,\n' +
+    '        "lastPlayTime": 1511527079000,\n' +
+    '        "championPointsSinceLastLevel": 1494,\n' +
+    '        "championPointsUntilNextLevel": 306,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 103,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 1406,\n' +
+    '        "lastPlayTime": 1507322402000,\n' +
+    '        "championPointsSinceLastLevel": 1406,\n' +
+    '        "championPointsUntilNextLevel": 394,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 9,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 1373,\n' +
+    '        "lastPlayTime": 1520525419000,\n' +
+    '        "championPointsSinceLastLevel": 1373,\n' +
+    '        "championPointsUntilNextLevel": 427,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 62,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 1325,\n' +
+    '        "lastPlayTime": 1484959582000,\n' +
+    '        "championPointsSinceLastLevel": 1325,\n' +
+    '        "championPointsUntilNextLevel": 475,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 53,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 1241,\n' +
+    '        "lastPlayTime": 1462550210000,\n' +
+    '        "championPointsSinceLastLevel": 1241,\n' +
+    '        "championPointsUntilNextLevel": 559,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 90,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 1199,\n' +
+    '        "lastPlayTime": 1522789756000,\n' +
+    '        "championPointsSinceLastLevel": 1199,\n' +
+    '        "championPointsUntilNextLevel": 601,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 104,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 1119,\n' +
+    '        "lastPlayTime": 1467236996000,\n' +
+    '        "championPointsSinceLastLevel": 1119,\n' +
+    '        "championPointsUntilNextLevel": 681,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 266,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 1062,\n' +
+    '        "lastPlayTime": 1513702083000,\n' +
+    '        "championPointsSinceLastLevel": 1062,\n' +
+    '        "championPointsUntilNextLevel": 738,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 85,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 948,\n' +
+    '        "lastPlayTime": 1522772081000,\n' +
+    '        "championPointsSinceLastLevel": 948,\n' +
+    '        "championPointsUntilNextLevel": 852,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 117,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 922,\n' +
+    '        "lastPlayTime": 1505550135000,\n' +
+    '        "championPointsSinceLastLevel": 922,\n' +
+    '        "championPointsUntilNextLevel": 878,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 238,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 856,\n' +
+    '        "lastPlayTime": 1516668981000,\n' +
+    '        "championPointsSinceLastLevel": 856,\n' +
+    '        "championPointsUntilNextLevel": 944,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 223,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 855,\n' +
+    '        "lastPlayTime": 1517779400000,\n' +
+    '        "championPointsSinceLastLevel": 855,\n' +
+    '        "championPointsUntilNextLevel": 945,\n' +
+    '        "chestGranted": true,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 121,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 775,\n' +
+    '        "lastPlayTime": 1506289770000,\n' +
+    '        "championPointsSinceLastLevel": 775,\n' +
+    '        "championPointsUntilNextLevel": 1025,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 420,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 760,\n' +
+    '        "lastPlayTime": 1522777763000,\n' +
+    '        "championPointsSinceLastLevel": 760,\n' +
+    '        "championPointsUntilNextLevel": 1040,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 240,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 517,\n' +
+    '        "lastPlayTime": 1491412029000,\n' +
+    '        "championPointsSinceLastLevel": 517,\n' +
+    '        "championPointsUntilNextLevel": 1283,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 164,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 359,\n' +
+    '        "lastPlayTime": 1522797326000,\n' +
+    '        "championPointsSinceLastLevel": 359,\n' +
+    '        "championPointsUntilNextLevel": 1441,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 101,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 269,\n' +
+    '        "lastPlayTime": 1522787577000,\n' +
+    '        "championPointsSinceLastLevel": 269,\n' +
+    '        "championPointsUntilNextLevel": 1531,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 136,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 219,\n' +
+    '        "lastPlayTime": 1516238211000,\n' +
+    '        "championPointsSinceLastLevel": 219,\n' +
+    '        "championPointsUntilNextLevel": 1581,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 115,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 209,\n' +
+    '        "lastPlayTime": 1510445591000,\n' +
+    '        "championPointsSinceLastLevel": 209,\n' +
+    '        "championPointsUntilNextLevel": 1591,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 31,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 198,\n' +
+    '        "lastPlayTime": 1484947450000,\n' +
+    '        "championPointsSinceLastLevel": 198,\n' +
+    '        "championPointsUntilNextLevel": 1602,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 33,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 192,\n' +
+    '        "lastPlayTime": 1499281427000,\n' +
+    '        "championPointsSinceLastLevel": 192,\n' +
+    '        "championPointsUntilNextLevel": 1608,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 19,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 181,\n' +
+    '        "lastPlayTime": 1470488552000,\n' +
+    '        "championPointsSinceLastLevel": 181,\n' +
+    '        "championPointsUntilNextLevel": 1619,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 145,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 179,\n' +
+    '        "lastPlayTime": 1520530247000,\n' +
+    '        "championPointsSinceLastLevel": 179,\n' +
+    '        "championPointsUntilNextLevel": 1621,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 77,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 177,\n' +
+    '        "lastPlayTime": 1498221467000,\n' +
+    '        "championPointsSinceLastLevel": 177,\n' +
+    '        "championPointsUntilNextLevel": 1623,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 74,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 175,\n' +
+    '        "lastPlayTime": 1506278489000,\n' +
+    '        "championPointsSinceLastLevel": 175,\n' +
+    '        "championPointsUntilNextLevel": 1625,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 141,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 175,\n' +
+    '        "lastPlayTime": 1503345636000,\n' +
+    '        "championPointsSinceLastLevel": 175,\n' +
+    '        "championPointsUntilNextLevel": 1625,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 32,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 163,\n' +
+    '        "lastPlayTime": 1449336540000,\n' +
+    '        "championPointsSinceLastLevel": 163,\n' +
+    '        "championPointsUntilNextLevel": 1637,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 3,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 159,\n' +
+    '        "lastPlayTime": 1490294023000,\n' +
+    '        "championPointsSinceLastLevel": 159,\n' +
+    '        "championPointsUntilNextLevel": 1641,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 37,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 158,\n' +
+    '        "lastPlayTime": 1522444119000,\n' +
+    '        "championPointsSinceLastLevel": 158,\n' +
+    '        "championPointsUntilNextLevel": 1642,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 157,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 155,\n' +
+    '        "lastPlayTime": 1462619483000,\n' +
+    '        "championPointsSinceLastLevel": 155,\n' +
+    '        "championPointsUntilNextLevel": 1645,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 25,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 152,\n' +
+    '        "lastPlayTime": 1513111153000,\n' +
+    '        "championPointsSinceLastLevel": 152,\n' +
+    '        "championPointsUntilNextLevel": 1648,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 36,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 148,\n' +
+    '        "lastPlayTime": 1488836852000,\n' +
+    '        "championPointsSinceLastLevel": 148,\n' +
+    '        "championPointsUntilNextLevel": 1652,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 16,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 129,\n' +
+    '        "lastPlayTime": 1498131664000,\n' +
+    '        "championPointsSinceLastLevel": 129,\n' +
+    '        "championPointsUntilNextLevel": 1671,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 5,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 122,\n' +
+    '        "lastPlayTime": 1501700760000,\n' +
+    '        "championPointsSinceLastLevel": 122,\n' +
+    '        "championPointsUntilNextLevel": 1678,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 57,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 118,\n' +
+    '        "lastPlayTime": 1501931919000,\n' +
+    '        "championPointsSinceLastLevel": 118,\n' +
+    '        "championPointsUntilNextLevel": 1682,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    },\n' +
+    '    {\n' +
+    '        "playerId": 27411419,\n' +
+    '        "championId": 60,\n' +
+    '        "championLevel": 1,\n' +
+    '        "championPoints": 87,\n' +
+    '        "lastPlayTime": 1519990734000,\n' +
+    '        "championPointsSinceLastLevel": 87,\n' +
+    '        "championPointsUntilNextLevel": 1713,\n' +
+    '        "chestGranted": false,\n' +
+    '        "tokensEarned": 0\n' +
+    '    }\n' +
+    ']');
 }

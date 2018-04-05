@@ -43,7 +43,7 @@ import {DragulaModule} from 'ng2-dragula';
       useClass: IonicErrorHandler
     },
     {
-      provide: RiotGamesProvider.setAPIKey('RGAPI-11e62a6b-c429-44a9-9a62-e6b32bd0343a'),
+      provide: RiotGamesProvider.setAPIKey('RGAPI-6c1d02d6-748f-4837-be66-b8cfa7b31ccc'),
       useClass: RiotGamesProviderMock
     },
     IonicStorageModule

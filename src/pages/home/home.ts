@@ -57,6 +57,19 @@ export class HomePage {
 
     // Init drag and drop
     this.initDragula();
+
+    // todo debug shizzle
+    /*
+    riotBackend.getChampionMastery().then(
+      (res) => {
+        //console.log(res);
+      },
+      (err: BackendResponse.Error) => {
+        // error
+        this.basicAlert('Error', err.status.message);
+      }
+    );
+    */
   }
 
   /**
