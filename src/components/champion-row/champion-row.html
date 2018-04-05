@@ -8,9 +8,11 @@
             <!--<ion-img width="50" height="50" src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{pick.champion.key}}.png"></ion-img>-->
             <img width="50" height="50" src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{pick.champion.key}}.png">
           </ion-avatar>
-          <ion-badge class="center-inner">
-            <ion-icon *ngIf="chestAvailableforChamp(pick.champion.id)" name="cube"></ion-icon>
-            <ion-icon *ngIf="!chestAvailableforChamp(pick.champion.id)" name="checkbox"></ion-icon>
+          <ion-badge *ngIf="chestAvailableforChamp(pick.champion.id)" class="center-inner" color="good">
+            <ion-icon  name="cube"></ion-icon>
+          </ion-badge>
+          <ion-badge *ngIf="!chestAvailableforChamp(pick.champion.id)" class="center-inner" color="neutral">
+            <ion-icon name="checkbox"></ion-icon>
           </ion-badge>
         </ion-item>
       </ion-row>
