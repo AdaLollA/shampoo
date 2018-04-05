@@ -2,12 +2,18 @@
   <ion-row class="center-horizontal">
     <ion-col *ngFor="let pick of picks" (click)="championClicked(pick)" class="center-outer" col-sm-2>
       <ion-row class="center-inner">
-        <ion-item>
+        <ion-item class="center-horizontal">
           <ion-avatar width="50" height="50">
             <!-- ion-img not working with avatar, if laggy use ion-img for performance -->
             <!--<ion-img width="50" height="50" src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{pick.champion.key}}.png"></ion-img>-->
             <img width="50" height="50" src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{pick.champion.key}}.png">
           </ion-avatar>
+          <ion-badge *ngIf="chestAvailableforChamp(pick.champion.id)" class="center-inner" color="good">
+            <ion-icon  name="cube"></ion-icon>
+          </ion-badge>
+          <ion-badge *ngIf="!chestAvailableforChamp(pick.champion.id)" class="center-inner" color="neutral">
+            <ion-icon name="checkbox"></ion-icon>
+          </ion-badge>
         </ion-item>
       </ion-row>
       <ion-row *ngIf="showName" class="center-inner">
