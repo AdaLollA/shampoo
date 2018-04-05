@@ -17,16 +17,11 @@ interface IRiotGamesEndpoints {
 
   getLatestVersion(): Promise<string>;
 
-  getChampionMastery(): Promise<IMastery[]>;
+  getChampionMastery(summonerId: string): Promise<IMastery[]>;
 }
 
 @Injectable()
 export class RiotGamesProvider extends ApiBaseProvider implements IRiotGamesEndpoints {
-  getChampionMastery(): Promise<RiotGamesProviderResponse.IMastery[]> {
-    // todo auto generated function
-    return undefined;
-  }
-
   private static apiKey: string
 
   constructor(private httpClient: HttpClient) {
@@ -43,6 +38,26 @@ export class RiotGamesProvider extends ApiBaseProvider implements IRiotGamesEndp
   public static setAPIKey(apiKey: string): typeof RiotGamesProvider {
     this.apiKey = apiKey;
     return this;
+  }
+
+  public getChampionMastery(summonerId: string): Promise<RiotGamesProviderResponse.IMastery[]> {
+    // todo builder?
+    let request = new APIRequestBuilder(RiotGamesProviderEndpoints.GET_MASTERY, HTTP_METHOD.GET)
+      .addToPath(summonerId)
+      .build();
+
+    return new Promise<IMastery[]>((resolve, reject) => {
+      this.request<IMastery[]>(request).then(
+        (masteryResponse) => {
+          //let masteries = ;
+          resolve(masteryResponse);
+        },
+        (err: BackendResponse.Error) => {
+          // error
+          reject(err);
+        }
+      );
+    });
   }
 
   public getChampions(): Promise<IChampion[]> {
@@ -93,13 +108,13 @@ export class RiotGamesProvider extends ApiBaseProvider implements IRiotGamesEndp
  * A mocked version of the RiotGamesProvider
  */
 export class RiotGamesProviderMock implements IRiotGamesEndpoints {
-  getChampionMastery(): Promise<RiotGamesProviderResponse.IMastery[]> {
+
+  public getChampionMastery(summonerId: string): Promise<RiotGamesProviderResponse.IMastery[]> {
     console.warn('You are currently using a mocked getChampionMastery() call!');
     return new Promise<IMastery[]>((resolve, reject) => {
-      let masteries: IMastery[] = [];
-      let res: any = RiotGamesProviderSamples.GET_MASTERY;
-      console.log(RiotGamesProviderSamples.GET_MASTERY);
-      //resolve(masteries);
+      let masteries: IMastery[];
+      masteries = RiotGamesProviderSamples.GET_MASTERY;
+      resolve(masteries);
     });
   }
 

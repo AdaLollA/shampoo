@@ -8,6 +8,7 @@ import {AppConfiguration} from '../../app/app-config';
 import {IPick, IPicks} from '../../entities/Entity';
 import {version} from 'punycode';
 import {DragulaService} from 'ng2-dragula';
+import IMastery = RiotGamesProviderResponse.IMastery;
 
 @Component({
   selector: 'page-home',
@@ -24,6 +25,7 @@ export class HomePage {
   // Picks and bans
   private picks: IPicks;
   private bans: IChampion[] = [];
+  private masteries: IMastery[];
 
   // Cached properties
   private showName: boolean;
@@ -58,18 +60,21 @@ export class HomePage {
     // Init drag and drop
     this.initDragula();
 
-    // todo debug shizzle
-    /*
-    riotBackend.getChampionMastery().then(
+    // Update champion mastery
+    this.updateChampionMastery();
+  }
+
+  private updateChampionMastery() {
+    this.riotBackend.getChampionMastery(this.summonerName).then(
       (res) => {
-        //console.log(res);
+        this.masteries = res;
+        console.log(this.masteries);
       },
       (err: BackendResponse.Error) => {
         // error
         this.basicAlert('Error', err.status.message);
       }
     );
-    */
   }
 
   /**
