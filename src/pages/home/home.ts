@@ -68,7 +68,6 @@ export class HomePage {
     this.riotBackend.getChampionMastery(this.summonerName).then(
       (res) => {
         this.masteries = res;
-        console.log(this.masteries);
       },
       (err: BackendResponse.Error) => {
         // error

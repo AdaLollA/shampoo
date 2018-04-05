@@ -29,7 +29,7 @@
         <b>JGL</b>
       </ion-col>
       <ion-col>
-        <champion-row (pickClick)="showChampionDetails($event)" [show-name]="showName" [champions]="picks.jgl" [version]="version"></champion-row>
+        <champion-row (pickClick)="showChampionDetails($event)" [masteries]="masteries" [show-name]="showName" [champions]="picks.jgl" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
@@ -37,7 +37,7 @@
         <b>MID</b>
       </ion-col>
       <ion-col>
-        <champion-row (pickClick)="showChampionDetails($event)" [show-name]="showName" [champions]="picks.mid" [version]="version"></champion-row>
+        <champion-row (pickClick)="showChampionDetails($event)" [masteries]="masteries" [show-name]="showName" [champions]="picks.mid" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
@@ -45,7 +45,7 @@
         <b>ADC</b>
       </ion-col>
       <ion-col>
-        <champion-row (pickClick)="showChampionDetails($event)" [show-name]="showName" [champions]="picks.adc" [version]="version"></champion-row>
+        <champion-row (pickClick)="showChampionDetails($event)" [masteries]="masteries" [show-name]="showName" [champions]="picks.adc" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
     <ion-row class="center-horizontal">
@@ -53,7 +53,7 @@
         <b>SUP</b>
       </ion-col>
       <ion-col>
-        <champion-row (pickClick)="showChampionDetails($event)" [show-name]="showName" [champions]="picks.sup" [version]="version"></champion-row>
+        <champion-row (pickClick)="showChampionDetails($event)" [masteries]="masteries" [show-name]="showName" [champions]="picks.sup" [version]="version"></champion-row>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -32,10 +32,17 @@ export class ChampionRowComponent {
   pickClick = new EventEmitter<IChampion>();
 
   constructor() {
+
   }
 
   private championClicked(pick: IPick) {
     this.pickClick.emit(pick.champion);
+  }
+
+  private chestAvailableforChamp(championId: number) {
+    if (this.masteries && this.picks) {
+      return this.masteries.find(x => x.championId == championId).chestGranted;
+    }
   }
 
 }

@@ -43,7 +43,7 @@ export class RiotGamesProvider extends ApiBaseProvider implements IRiotGamesEndp
   public getChampionMastery(summonerId: string): Promise<RiotGamesProviderResponse.IMastery[]> {
     // todo builder?
     let request = new APIRequestBuilder(RiotGamesProviderEndpoints.GET_MASTERY, HTTP_METHOD.GET)
-      .addToPath(summonerId)
+      //.addToPath(summonerId) // todo throws error
       .build();
 
     return new Promise<IMastery[]>((resolve, reject) => {
